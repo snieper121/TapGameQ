@@ -28,19 +28,6 @@ find_package(cxx REQUIRED CONFIG)
 
 include_directories(.)
 
-# Сборка rish_starter (аналог shizuku_starter)
-add_executable(rish_starter
-    starter.cpp
-    misc.cpp
-    selinux.cpp
-    cgroup.cpp
-    android.cpp
-    helper.cpp
-    adb_pairing.cpp
-)
-target_link_libraries(rish_starter PRIVATE log)
-
-# Сборка основной библиотеки rish (JNI)
 add_library(rish SHARED
         main.cpp
         pts.cpp

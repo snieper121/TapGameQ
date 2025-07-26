@@ -4,10 +4,10 @@ plugins {
 
 android {
     namespace 'rikka.rish'
-    compileSdk api_target_sdk
+    compileSdk 34
     defaultConfig {
-        minSdkVersion api_min_sdk
-        targetSdkVersion api_target_sdk
+        minSdkVersion 29
+        targetSdkVersion 34
         consumerProguardFiles "consumer-rules.pro"
         externalNativeBuild {
             cmake {
@@ -25,8 +25,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     externalNativeBuild {
         cmake {
@@ -46,4 +46,10 @@ ext {
     publishLibrary = false
     POM_NAME = "RISH"
     POM_DESCRIPTION = "RISH"
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+  kotlinOptions {
+    jvmTarget = "17"
+  }
 }

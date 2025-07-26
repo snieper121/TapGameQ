@@ -6,6 +6,10 @@ plugins {
 android {
     namespace 'moe.shizuku.server'
     buildFeatures {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
         buildConfig = false
     }
     compileOptions {
@@ -37,3 +41,9 @@ dependencies {
     annotationProcessor "moe.shizuku.refine:refine-annotation-processor:1.0.0"
     implementation "moe.shizuku.refine:refine-annotation:1.0.0"
     implementation "moe.shizuku.refine:refine-runtime:1.0.0"}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+  kotlinOptions {
+    jvmTarget = "17"
+  }
+}

@@ -4,10 +4,10 @@ plugins {
 
 android {
     namespace 'rikka.shizuku.provider'
-    compileSdk api_target_sdk
+    compileSdk 34
     defaultConfig {
-        minSdkVersion api_min_sdk
-        targetSdkVersion api_target_sdk
+        minSdkVersion 29
+        targetSdkVersion 34
         consumerProguardFiles "consumer-rules.pro"
     }
     buildFeatures {
@@ -20,8 +20,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
