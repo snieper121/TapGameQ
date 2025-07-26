@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
+  <!-- Попробуйте одну из этих тем по очереди -->
+
+  <!-- Вариант 1: Более универсальная тема AppCompat
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />-->
+
+  <!-- Вариант 2: Если первый не поможет, попробуйте MaterialComponents -->
+  <!-- <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar" /> -->
+
+  <!-- Вариант 3: Если и это не поможет, попробуйте просто Light (без NoActionBar) -->
+  <!-- <style name="AppTheme" parent="android:Theme.Light" /> -->

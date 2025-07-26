@@ -1,0 +1,1 @@
+package android.os; public interface IBinder { interface DeathRecipient { void binderDied(); } boolean pingBinder(); String getInterfaceDescriptor(); void linkToDeath(DeathRecipient recipient, int flags); void unlinkToDeath(DeathRecipient recipient, int flags); boolean transact(int code, android.os.Parcel data, android.os.Parcel reply, int flags); }

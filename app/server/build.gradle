@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'moe.shizuku.server'
+    buildFeatures {
+        buildConfig = false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+  kotlinOptions {
+    jvmTarget = "17"
+  }
+}
+
+dependencies {
+    implementation "androidx.annotation:annotation:1.2.0"
+    implementation 'com.google.code.gson:gson:2.9.0'
+    api 'dev.rikka.rikkax.parcelablelist:parcelablelist:2.0.0'
+
+    implementation project(':app:aidl')
+    implementation project(':app:common')
+    implementation project(':app:shared')
+    compileOnly project(':app:provider')
+    implementation project(':app:starter')
+    implementation project(':app:rish')
+    implementation project(':app:server-shared')
+    implementation "moe.shizuku.hidden:hidden-compat:1.0.0"
+    compileOnly "moe.shizuku.hidden:hidden-stub:1.0.0"
+    annotationProcessor "moe.shizuku.refine:refine-annotation-processor:1.0.0"
+    implementation "moe.shizuku.refine:refine-annotation:1.0.0"
+    implementation "moe.shizuku.refine:refine-runtime:1.0.0"}

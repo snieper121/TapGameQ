@@ -1,0 +1,1 @@
+package android.content; public class ContextHidden { public Context createPackageContextAsUser(String packageName, int flags, android.os.UserHandleHidden user) { return null; } public Context createPackageContext(String packageName, int flags) { return null; } }
