@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace 'moe.shizuku.server'
+    compileSdk 34
     buildFeatures {
         buildConfig = false
     }

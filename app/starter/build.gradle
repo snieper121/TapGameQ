@@ -4,6 +4,7 @@ plugins {
 
 android {
     namespace 'rikka.shizuku.starter'
+    compileSdk 34
     buildFeatures {
 	    buildConfig = false
     }
