@@ -1,0 +1,13 @@
+# Папки, генерируемые Gradle
+.gradle/
+build/
+
+# Файлы и папки IDE (включая IDX)
+.idea/
+.idx/
+*.iml
+
+local.properties
+
+# Другие системные файлы
+.DS_Store
