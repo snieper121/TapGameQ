@@ -31,7 +31,4 @@ dependencies {
     api project(':app:shared')
     api project(':app:rish')
 
-    implementation "moe.shizuku.refine:refine-runtime:1.0.0"
-    implementation "moe.shizuku.hidden:hidden-compat:1.0.0"
-    compileOnly "moe.shizuku.hidden:hidden-stub:1.0.0"
 }

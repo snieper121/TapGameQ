@@ -16,5 +16,4 @@ android {
 }
 
 dependencies {
-    compileOnly "moe.shizuku.hidden:hidden-stub:1.0.0"
 }
