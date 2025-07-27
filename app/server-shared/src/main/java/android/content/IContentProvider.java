@@ -10,4 +10,7 @@ public interface IContentProvider extends IBinder {
     
     Bundle call(Object attributionSource, String authority, String method, 
                 String arg, Bundle extras) throws RemoteException;
+    
+    // Добавляем перегрузку для 4 параметров
+    Bundle call(String callingPkg, String method, String arg, Bundle extras) throws RemoteException;
 }

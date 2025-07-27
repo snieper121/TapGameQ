@@ -103,7 +103,7 @@ public class ServiceStarter {
                 Log.e(TAG, String.format("provider is null %s %d", name, userId));
                 return false;
             }
-            if (!provider.asBinder().pingBinder()) {
+            if (!provider.pingBinder()) {
                 Log.e(TAG, String.format("provider is dead %s %d", name, userId));
 
                 if (retry) {
