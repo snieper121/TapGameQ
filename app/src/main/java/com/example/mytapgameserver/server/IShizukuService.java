@@ -1,1 +1,0 @@
-package com.example.mytapgameserver.server; import android.os.IInterface; public interface IShizukuService extends IInterface { class Stub { public static IShizukuService asInterface(android.os.IBinder binder) { return null; } } }

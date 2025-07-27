@@ -19,7 +19,8 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-        
+        ndkVersion "23.1.7779620"
+
         vectorDrawables { 
             useSupportLibrary true
         }
@@ -50,9 +51,6 @@ android {
         }
     }
     
-    }
-    
-    ndkVersion "23.1.7779620"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
