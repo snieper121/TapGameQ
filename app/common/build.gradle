@@ -4,6 +4,7 @@ plugins {
 
 android {
     namespace 'rikka.shizuku.common'
+    compileSdk 34
     buildFeatures {
         buildConfig = false
     }
@@ -15,5 +16,5 @@ android {
 }
 
 dependencies {
-    compileOnly libs.hidden.stub
+    compileOnly "moe.shizuku.hidden:hidden-stub:1.0.0"
 }
