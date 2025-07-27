@@ -6,7 +6,8 @@ build/
 .idea/
 .idx/
 *.iml
-
+.androidide
+.vscode
 local.properties
 
 # Другие системные файлы
