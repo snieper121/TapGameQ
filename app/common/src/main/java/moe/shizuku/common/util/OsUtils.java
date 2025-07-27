@@ -1,34 +1,15 @@
 package moe.shizuku.common.util;
 
-import android.os.SELinux;
+import java.lang.reflect.Method;
 
 public class OsUtils {
-
-    private static final int UID = android.system.Os.getuid();
-    private static final int PID = android.system.Os.getpid();
-    private static final String SELINUX_CONTEXT;
-
-    static {
-        String context;
-        try {
-            context = SELinux.getContext();
-        } catch (Throwable tr) {
-            context = null;
-        }
-        SELINUX_CONTEXT = context;
-    }
-
-
-    public static int getUid() {
-        return UID;
-    }
-
-    public static int getPid() {
-        return PID;
-    }
-
     public static String getSELinuxContext() {
-        return SELINUX_CONTEXT;
+        try {
+            Class<?> selinuxClass = Class.forName("android.os.SELinux");
+            Method getContextMethod = selinuxClass.getMethod("getContext");
+            return (String) getContextMethod.invoke(null);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
-
