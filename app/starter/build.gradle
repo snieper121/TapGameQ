@@ -15,10 +15,10 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
-    implementation project(':shared')
-    implementation project(':server-shared')
-    compileOnly project(':provider')
+    implementation project(':app:common')
+    implementation project(':app:shared')
+    implementation project(':app:server-shared')
+    compileOnly project(':app:provider')
     implementation 'androidx.annotation:annotation:1.3.0'
     implementation "moe.shizuku.hidden:hidden-compat:1.0.0"
     compileOnly "moe.shizuku.hidden:hidden-stub:1.0.0"

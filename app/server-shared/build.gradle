@@ -27,9 +27,9 @@ dependencies {
     implementation 'androidx.core:core:1.8.0'
     implementation 'dev.rikka.rikkax.parcelablelist:parcelablelist:2.0.0'
 
-    api project(':aidl')
-    api project(':shared')
-    api project(':rish')
+    api project(':app:aidl')
+    api project(':app:shared')
+    api project(':app:rish')
 
     implementation "moe.shizuku.refine:refine-runtime:1.0.0"
     implementation "moe.shizuku.hidden:hidden-compat:1.0.0"
