@@ -9,6 +9,6 @@ build/
 .androidide
 .vscode
 local.properties
-
+/home/user/TapGameQ/app/src/main/java/android/
 # Другие системные файлы
 .DS_Store
