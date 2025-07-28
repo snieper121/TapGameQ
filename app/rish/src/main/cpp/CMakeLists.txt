@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.22.1)
 
-project("rish")
+project(rish LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -9,26 +9,27 @@ set(LINKER_FLAGS "-Wl,--hash-style=both")
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     message("Builing Release...")
-
     set(C_FLAGS "${C_FLAGS} -O2 -fvisibility=hidden -fvisibility-inlines-hidden")
     set(LINKER_FLAGS "${LINKER_FLAGS} -Wl,-exclude-libs,ALL -Wl,--gc-sections")
 else ()
     message("Builing Debug...")
-
     add_definitions(-DDEBUG)
 endif ()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_FLAGS}")
-
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${LINKER_FLAGS}")
 set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${LINKER_FLAGS}")
 
-find_package(cxx REQUIRED CONFIG)
+list(APPEND CMAKE_PREFIX_PATH
+    "${CMAKE_BINARY_DIR}/install"
+    "${CMAKE_INSTALL_PREFIX}"
+)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
 
 include_directories(.)
 
-# Сборка rish_starter (аналог shizuku_starter)
 add_executable(rish_starter
     starter.cpp
     misc.cpp
@@ -40,14 +41,13 @@ add_executable(rish_starter
 )
 target_link_libraries(rish_starter PRIVATE log)
 
-# Сборка основной библиотеки rish (JNI)
 add_library(rish SHARED
         main.cpp
         pts.cpp
         rikka_rish_RishTerminal.cpp
         rikka_rish_RishHost.cpp)
 
-target_link_libraries(rish log cxx::cxx)
+target_link_libraries(rish log)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_custom_command(TARGET rish POST_BUILD

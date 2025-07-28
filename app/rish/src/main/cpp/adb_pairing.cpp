@@ -1,10 +1,12 @@
+#include <cstdlib>
 #include <jni.h>
 #include <dirent.h>
 #include <cstring>
 #include <cstdlib>
 #include <cinttypes>
 #include <sys/system_properties.h>
-#include <openssl/curve25519.h>
+#include <cstdlib>
+// #include <openssl/curve25519.h>  // Temporarily disabled
 #include <openssl/hkdf.h>
 #include <openssl/evp.h>
 #include "adb_pairing.h"

@@ -5,6 +5,12 @@ plugins {
 }
 
 android {
+    externalNativeBuild {
+        cmake {
+            path "rish/src/main/cpp/CMakeLists.txt"
+            version "3.27.7"
+        }
+    }
     namespace 'com.example.tapgame'
     compileSdk 34
     sourceSets {

@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <sys/system_properties.h>
 #include <cstring>
 #include <climits>
