@@ -37,7 +37,6 @@ add_executable(rish_starter
     cgroup.cpp
     android.cpp
     helper.cpp
-    adb_pairing.cpp
 )
 target_link_libraries(rish_starter PRIVATE log)
 

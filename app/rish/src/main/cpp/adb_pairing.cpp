@@ -6,9 +6,9 @@
 #include <cinttypes>
 #include <sys/system_properties.h>
 #include <cstdlib>
-// #include <openssl/curve25519.h>  // Temporarily disabled
-#include <openssl/hkdf.h>
-#include <openssl/evp.h>
+// // #include <openssl/curve25519.h>  // Temporarily disabled  // Temporarily disabled
+// #include <openssl/hkdf.h>  // Temporarily disabled
+// #include <openssl/evp.h>  // Temporarily disabled
 #include "adb_pairing.h"
 
 #define LOG_TAG "AdbPairClient"

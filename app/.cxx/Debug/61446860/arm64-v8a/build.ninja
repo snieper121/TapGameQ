@@ -109,16 +109,6 @@ build CMakeFiles/rish_starter.dir/helper.cpp.o: CXX_COMPILER__rish_starter_unsca
   TARGET_COMPILE_PDB = CMakeFiles/rish_starter.dir/
   TARGET_PDB = /home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/arm64-v8a/rish_starter.pdb
 
-build CMakeFiles/rish_starter.dir/adb_pairing.cpp.o: CXX_COMPILER__rish_starter_unscanned_Debug /home/user/TapGameQ/app/rish/src/main/cpp/adb_pairing.cpp || cmake_object_order_depends_target_rish_starter
-  DEFINES = -DDEBUG
-  DEP_FILE = CMakeFiles/rish_starter.dir/adb_pairing.cpp.o.d
-  FLAGS = -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE
-  INCLUDES = -I/home/user/TapGameQ/app/rish/src/main/cpp/.
-  OBJECT_DIR = CMakeFiles/rish_starter.dir
-  OBJECT_FILE_DIR = CMakeFiles/rish_starter.dir
-  TARGET_COMPILE_PDB = CMakeFiles/rish_starter.dir/
-  TARGET_PDB = /home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/arm64-v8a/rish_starter.pdb
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target rish_starter
@@ -127,7 +117,7 @@ build CMakeFiles/rish_starter.dir/adb_pairing.cpp.o: CXX_COMPILER__rish_starter_
 #############################################
 # Link the executable /home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/arm64-v8a/rish_starter
 
-build /home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/arm64-v8a/rish_starter: CXX_EXECUTABLE_LINKER__rish_starter_Debug CMakeFiles/rish_starter.dir/starter.cpp.o CMakeFiles/rish_starter.dir/misc.cpp.o CMakeFiles/rish_starter.dir/selinux.cpp.o CMakeFiles/rish_starter.dir/cgroup.cpp.o CMakeFiles/rish_starter.dir/android.cpp.o CMakeFiles/rish_starter.dir/helper.cpp.o CMakeFiles/rish_starter.dir/adb_pairing.cpp.o
+build /home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/arm64-v8a/rish_starter: CXX_EXECUTABLE_LINKER__rish_starter_Debug CMakeFiles/rish_starter.dir/starter.cpp.o CMakeFiles/rish_starter.dir/misc.cpp.o CMakeFiles/rish_starter.dir/selinux.cpp.o CMakeFiles/rish_starter.dir/cgroup.cpp.o CMakeFiles/rish_starter.dir/android.cpp.o CMakeFiles/rish_starter.dir/helper.cpp.o
   FLAGS = -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info
   LINK_FLAGS = -Wl,--build-id=sha1 -Wl,--fatal-warnings -Qunused-arguments -Wl,--no-undefined  -Wl,--gc-sections
   LINK_LIBRARIES = -llog   -static-libstdc++ -latomic -lm

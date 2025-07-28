@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "rish::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-rish-Debug-b7f38f10d0bc05953144.json",
+					"jsonFile" : "target-rish-Debug-c874b83a4e54081911d3.json",
 					"name" : "rish",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "rish_starter::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-rish_starter-Debug-e1bb91de49e0ea9219e6.json",
+					"jsonFile" : "target-rish_starter-Debug-90358cabb0a7f0707afb.json",
 					"name" : "rish_starter",
 					"projectIndex" : 0
 				}
@@ -58,7 +58,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/user/TapGameQ/app/.cxx/Debug/61446860/arm64-v8a",
+		"build" : "/home/user/TapGameQ/app/.cxx/Debug/61446860/x86_64",
 		"source" : "/home/user/TapGameQ/app/rish/src/main/cpp"
 	},
 	"version" : 
