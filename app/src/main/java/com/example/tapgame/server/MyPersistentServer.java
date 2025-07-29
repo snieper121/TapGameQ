@@ -29,6 +29,7 @@ import moe.shizuku.server.IShizukuService;
 import moe.shizuku.server.IRemoteProcess;
 import moe.shizuku.server.IShizukuServiceConnection;
 import com.example.tapgame.data.SettingsDataStore;
+import com.example.tapgame.server.IMyPermissionServer;
 
 import java.util.List;
 

@@ -16,12 +16,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
-        }
-    }
-
-    sourceSets {
-        main {
-            aidl.srcDirs = ['src/main/aidl']
+            aidl.srcDirs = ['src/main/aidl']  // ← ДОБАВИТЬ ЭТУ СТРОКУ
         }
     }
 
