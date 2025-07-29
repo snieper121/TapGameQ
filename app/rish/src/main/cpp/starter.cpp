@@ -11,6 +11,10 @@
 #include <cerrno>
 #include <string>
 #include <termios.h>
+#include <binder/IServiceManager.h>
+#include <binder/Parcel.h>
+#include <binder/IBinder.h>
+#include <utils/String16.h>
 #include "android.h"
 #include "misc.h"
 #include "selinux.h"
@@ -181,7 +185,53 @@ static int switch_cgroup() {
     return -1;
 }
 
+using namespace android;
+
+static bool grantPermission(const std::string& packageName, const std::string& permission, int userId = 0) {
+    sp<IBinder> pm = defaultServiceManager()->getService(String16("package"));
+    if (pm == nullptr) {
+        printf("error: Cannot get PackageManager binder\n");
+        return false;
+    }
+
+    Parcel data, reply;
+    data.writeInterfaceToken(String16("android.content.pm.IPackageManager"));
+    data.writeString16(String16(packageName.c_str()));
+    data.writeString16(String16(permission.c_str()));
+    data.writeInt32(userId);
+
+    status_t result = pm->transact(46, data, &reply);
+    if (result != NO_ERROR) {
+        printf("error: transact failed: %d\n", result);
+        return false;
+    }
+    return true;
+}
+
+static void grant_mode(int argc, char *argv[]) {
+    if (argc < 3) {
+        printf("Usage: %s grant <package> <permission1> [permission2] ...\n", argv[0]);
+        exit(1);
+    }
+    
+    std::string package = argv[2];
+    for (int i = 3; i < argc; ++i) {
+        std::string perm = argv[i];
+        if (grantPermission(package, perm)) {
+            printf("Granted %s to %s\n", perm.c_str(), package.c_str());
+        } else {
+            printf("Failed to grant %s to %s\n", perm.c_str(), package.c_str());
+        }
+    }
+    exit(0);
+}
+
 int main(int argc, char *argv[]) {
+    
+    if (argc >= 2 && strcmp(argv[1], "grant") == 0) {
+        grant_mode(argc, argv);
+    }
+
     std::string apk_path;
     for (int i = 0; i < argc; ++i) {
         if (strncmp(argv[i], "--apk=", 6) == 0) {

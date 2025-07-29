@@ -38,7 +38,7 @@ add_executable(rish_starter
     android.cpp
     helper.cpp
 )
-target_link_libraries(rish_starter PRIVATE log)
+target_link_libraries(rish_starter PRIVATE log binder)
 
 add_library(rish SHARED
         main.cpp
