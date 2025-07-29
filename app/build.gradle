@@ -19,6 +19,12 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.tapgame"
         minSdk 30
