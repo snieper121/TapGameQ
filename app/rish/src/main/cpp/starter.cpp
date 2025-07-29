@@ -11,10 +11,7 @@
 #include <cerrno>
 #include <string>
 #include <termios.h>
-#include <binder/IServiceManager.h>
-#include <binder/Parcel.h>
-#include <binder/IBinder.h>
-#include <utils/String16.h>
+//Binder headers removed - using system calls instead
 #include "android.h"
 #include "misc.h"
 #include "selinux.h"
@@ -185,27 +182,23 @@ static int switch_cgroup() {
     return -1;
 }
 
-using namespace android;
+
 
 static bool grantPermission(const std::string& packageName, const std::string& permission, int userId = 0) {
-    sp<IBinder> pm = defaultServiceManager()->getService(String16("package"));
-    if (pm == nullptr) {
-        printf("error: Cannot get PackageManager binder\n");
+    // Используем pm grant через system() вместо Binder
+    char cmd[512];
+    snprintf(cmd, sizeof(cmd), "pm grant %s %s", packageName.c_str(), permission.c_str());
+    
+    printf("Executing: %s\n", cmd);
+    int result = system(cmd);
+    
+    if (result == 0) {
+        printf("Successfully granted %s to %s\n", permission.c_str(), packageName.c_str());
+        return true;
+    } else {
+        printf("Failed to grant %s to %s (exit code: %d)\n", permission.c_str(), packageName.c_str(), result);
         return false;
     }
-
-    Parcel data, reply;
-    data.writeInterfaceToken(String16("android.content.pm.IPackageManager"));
-    data.writeString16(String16(packageName.c_str()));
-    data.writeString16(String16(permission.c_str()));
-    data.writeInt32(userId);
-
-    status_t result = pm->transact(46, data, &reply);
-    if (result != NO_ERROR) {
-        printf("error: transact failed: %d\n", result);
-        return false;
-    }
-    return true;
 }
 
 static void grant_mode(int argc, char *argv[]) {
