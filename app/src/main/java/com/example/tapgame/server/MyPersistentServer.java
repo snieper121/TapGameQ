@@ -91,7 +91,7 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
 
     @Override
     public UserServiceManager onCreateUserServiceManager() {
-        return new TapGameUserServiceManager(this);
+        return new TapGameUserServiceManager();
     }
 
     @Override
@@ -220,14 +220,7 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     @Override
-    public void showPermissionConfirmation(int requestUid, int requestPid, String requestPackageName, int requestCode) throws RemoteException {
-        // Автоматически предоставляем разрешения
-        Log.d(TAG, "showPermissionConfirmation: auto-granting for " + requestPackageName);
-        setPermissionSaved(true);
-    }
-
-    @Override
-    public void showPermissionConfirmation(int requestUid, int requestPid, int requestCode, int requestUid2, int requestPid2) {
+    public void showPermissionConfirmation(int requestUid, ClientRecord clientRecord, int requestCode, int requestUid2, int requestPid2) {
         // Автоматически предоставляем разрешения
         Log.d(TAG, "showPermissionConfirmation: auto-granting");
         try {

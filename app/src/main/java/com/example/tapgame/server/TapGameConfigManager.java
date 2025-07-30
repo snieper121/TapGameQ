@@ -100,27 +100,22 @@ public class TapGameConfigManager extends ConfigManager {
     // Создаем ConfigPackageEntry через фабричный метод
     private ConfigPackageEntry createConfigPackageEntry(int uid, List<String> packages, int flags) {
         return new ConfigPackageEntry() {
-            @Override
             public int getUid() {
                 return uid;
             }
 
-            @Override
             public List<String> getPackages() {
                 return packages;
             }
 
-            @Override
             public int getFlags() {
                 return flags;
             }
 
-            @Override
             public boolean isAllowed() {
                 return (flags & FLAG_ALLOWED) != 0;
             }
 
-            @Override
             public boolean isDenied() {
                 return (flags & FLAG_DENIED) != 0;
             }
