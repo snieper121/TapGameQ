@@ -14,6 +14,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import rikka.shizuku.server.Service;
+import rikka.shizuku.server.UserServiceManager;
 import rikka.rish.RishConfig;
 import rikka.shizuku.ShizukuApiConstants;
 import rikka.shizuku.server.ClientRecord;
@@ -23,7 +25,7 @@ import com.example.tapgame.server.IMyPermissionServer;
 
 import java.util.List;
 
-public class MyPersistentServer extends Binder implements IMyPermissionServer {
+public class MyPersistentServer extends Service<UserServiceManager, TapGameClientManager, TapGameConfigManager> {
 
     private static final String TAG = "TapGameServer";
     private static final String MANAGER_APPLICATION_ID = "com.example.tapgame";
@@ -69,11 +71,12 @@ public class MyPersistentServer extends Binder implements IMyPermissionServer {
         // В реальном приложении контекст должен передаваться извне
         settingsDataStore = new SettingsDataStore(null); // Временно null
 
-        configManager = new TapGameConfigManager(null);
-        clientManager = new TapGameClientManager(configManager);
-
         // Упрощенная версия получения managerAppId
         managerAppId = android.os.Process.myUid();
+
+        // Получаем менеджеры через методы базового класса
+        configManager = getConfigManager();
+        clientManager = getClientManager();
 
         Log.i(TAG, "TapGame server started");
     }
@@ -82,18 +85,17 @@ public class MyPersistentServer extends Binder implements IMyPermissionServer {
         return PackageManager.PERMISSION_GRANTED; // Упрощенно
     }
 
+    @Override
     public void exit() {
         Log.i(TAG, "TapGame server exiting...");
         System.exit(0);
     }
 
     // IMyPermissionServer implementation
-    @Override
     public boolean isPermissionSaved() {
         return true; // Упрощенно
     }
 
-    @Override
     public boolean isPermissionActive() {
         // Проверяем, есть ли активные клиенты с разрешениями
         List<ClientRecord> clients = clientManager.findClients(managerAppId);
@@ -103,17 +105,14 @@ public class MyPersistentServer extends Binder implements IMyPermissionServer {
         return false;
     }
 
-    @Override
     public void setPermissionSaved(boolean saved) {
         Log.d(TAG, "Permission saved: " + saved);
     }
 
-    @Override
     public boolean isShizukuActive() {
         return isPermissionActive();
     }
 
-    @Override
     public void requestShizukuPermission() {
         // Автоматически предоставляем разрешения для нашего приложения
         Log.d(TAG, "requestShizukuPermission: auto-granting for TapGame");
@@ -158,8 +157,25 @@ public class MyPersistentServer extends Binder implements IMyPermissionServer {
         return callingUid == managerAppId;
     }
 
-    public boolean checkCallerPermission(String func, int callingUid, int callingPid, @Nullable Object clientRecord) {
+    @Override
+    public boolean checkCallerPermission(String func, int callingUid, int callingPid, @Nullable ClientRecord clientRecord) {
         if (callingUid == managerAppId) return true;
+        if (clientRecord != null && clientRecord.allowed) return true;
         return checkCallingPermission() == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @Override
+    public UserServiceManager onCreateUserServiceManager() {
+        return new TapGameUserServiceManager();
+    }
+
+    @Override
+    public TapGameClientManager onCreateClientManager() {
+        return new TapGameClientManager(configManager);
+    }
+
+    @Override
+    public TapGameConfigManager onCreateConfigManager() {
+        return new TapGameConfigManager(null);
     }
 }
