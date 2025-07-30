@@ -33,8 +33,7 @@ import com.example.tapgame.server.IMyPermissionServer;
 
 import java.util.List;
 
-public class MyPersistentServer extends Service<UserServiceManager, TapGameClientManager, TapGameConfigManager>
-        implements IShizukuService, IMyPermissionServer {
+public class MyPersistentServer extends Service<UserServiceManager, TapGameClientManager, TapGameConfigManager> {
 
     private static final String TAG = "TapGameServer";
     private static final String MANAGER_APPLICATION_ID = "com.example.tapgame";
@@ -129,12 +128,10 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     // IMyPermissionServer implementation
-    @Override
     public boolean isPermissionSaved() throws RemoteException {
         return true; // Упрощенно
     }
 
-    @Override
     public boolean isPermissionActive() throws RemoteException {
         // Проверяем, есть ли активные клиенты с разрешениями
         List<ClientRecord> clients = clientManager.findClients(managerAppId);
@@ -144,17 +141,14 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         return false;
     }
 
-    @Override
     public void setPermissionSaved(boolean saved) throws RemoteException {
         Log.d(TAG, "Permission saved: " + saved);
     }
 
-    @Override
     public boolean isShizukuActive() throws RemoteException {
         return isPermissionActive();
     }
 
-    @Override
     public void requestShizukuPermission() throws RemoteException {
         // Автоматически предоставляем разрешения для нашего приложения
         Log.d(TAG, "requestShizukuPermission: auto-granting for TapGame");
