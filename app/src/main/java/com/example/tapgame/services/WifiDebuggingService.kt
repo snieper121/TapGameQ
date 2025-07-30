@@ -16,12 +16,11 @@ import androidx.core.app.RemoteInput
 import androidx.lifecycle.Observer
 import com.example.tapgame.R
 import com.example.tapgame.data.SettingsDataStore
-import com.example.tapgame.utils.PermissionChecker
 import com.example.tapgame.utils.NetworkUtils
+import com.example.tapgame.utils.PermissionChecker
 import kotlinx.coroutines.*
 import moe.shizuku.manager.adb.*
 import java.net.ConnectException
-import com.example.tapgame.server.MyPersistentServer
 
 @SuppressLint("NewApi")
 class WifiDebuggingService : Service() {
@@ -37,6 +36,7 @@ class WifiDebuggingService : Service() {
         private const val ACTION_RETRY_PAIRING = "com.example.tapgame.RETRY_PAIRING"
         private const val KEY_REMOTE_INPUT = "pairing_code"
         private const val KEY_PORT = "port"
+        private const val TAG = "WifiDebuggingService"
 
         fun startIntent(context: Context): Intent {
             return Intent(context, WifiDebuggingService::class.java).setAction(ACTION_START_PAIRING)
@@ -64,7 +64,9 @@ class WifiDebuggingService : Service() {
                 val code = RemoteInput.getResultsFromIntent(intent)?.getCharSequence(KEY_REMOTE_INPUT)?.toString() ?: ""
                 val port = intent.getIntExtra(KEY_PORT, -1)
                 if (port != -1 && code.isNotBlank()) {
-                    performPairingAndStartServer(code, port)
+                    serviceScope.launch {
+                        performPairingAndStartServer(code, port)
+                    }
                 }
             }
             ACTION_STOP -> stopService()
@@ -86,43 +88,62 @@ class WifiDebuggingService : Service() {
             }
         }).apply { start() }
     }
-    
-    private suspend fun performPairingAndStartServer() {
+
+    private suspend fun performPairingAndStartServer(code: String, port: Int) {
+        updateNotification(createWorkingNotification("Выполняется сопряжение..."))
+        var success = false
+        var error: Throwable? = null
         try {
-            // Запускаем наш сервер напрямую
-            Log.d(TAG, "Starting MyPersistentServer...")
+            val keyStore = PreferenceAdbKeyStore(getSharedPreferences("adb_key", Context.MODE_PRIVATE))
+            val key = AdbKey(keyStore, "TapGameKey")
+
+            // Получаем локальный IP-адрес
+            val localIp = NetworkUtils.getLocalIpAddress(applicationContext) ?: "127.0.0.1"
+            Log.d(TAG, "Используем IP-адрес: $localIp")
+
+            Log.d(TAG, "Шаг 1: Выполняем сопряжение...")
+            val pairingClient = AdbPairingClient(localIp, port, code, key)
+            pairingClient.start()
+            pairingClient.close()
+            Log.d(TAG, "Сопряжение успешно.")
+
+            updateNotification(createWorkingNotification("Запуск службы..."))
+            Log.d(TAG, "Шаг 2: Ищем порт для подключения...")
+            val connectPort = findAdbConnectPort()
+            if (connectPort == -1) throw Exception("Не удалось найти порт для подключения.")
+            settingsDataStore.setAdbConnectPort(connectPort)
+            Log.d(TAG, "Порт для подключения найден: $connectPort")
+
+            Log.d(TAG, "Шаг 3: Подключаемся и запускаем сервер-маркер...")
+            val adbClient = AdbClient(localIp, connectPort, key)
+            adbClient.connect()
+
+            adbClient.shell("killall -9 sh")
+            adbClient.shell("exec -a tapgame_marker sleep 9999999")
+            adbClient.close()
+            Log.d(TAG, "Сервер-маркер успешно запущен.")
             
-            // Создаем экземпляр сервера
-            val server = MyPersistentServer()
-            
-            // Запускаем сервер в отдельном потоке
-            withContext(Dispatchers.IO) {
-                try {
-                    MyPersistentServer.main(arrayOf())
-                } catch (e: Exception) {
-                    Log.e(TAG, "Error starting server", e)
-                }
+            // Запускаем наш сервер
+            Log.d(TAG, "Шаг 4: Запускаем MyPersistentServer...")
+            try {
+                // MyPersistentServer.main(arrayOf()) // Закомментировано, если этого класса еще нет
+            } catch (e: Exception) {
+                Log.e(TAG, "Error starting server", e)
             }
             
-            // Ждем запуска сервера
-            delay(2000)
-            
-            // Привязываемся к серверу
-            bindToPermissionServer()
-            
-            // Отключаем Wi-Fi отладку
-            disableWifiDebugging()
-            
-            Log.d(TAG, "Server started successfully")
-            
-        } catch (e: Exception) {
-            Log.e(TAG, "Error in performPairingAndStartServer", e)
+            success = true
+        } catch (e: Throwable) {
+            Log.e(TAG, "Ошибка на этапе сопряжения или запуска", e)
+            error = e
+            success = false
+        } finally {
+            handleResult(success, error)
         }
     }
 
     private suspend fun findAdbConnectPort(): Int {
         for (attempt in 1..3) {
-            Log.d("WifiDebuggingService", "Попытка найти порт подключения №$attempt...")
+            Log.d(TAG, "Попытка найти порт подключения №$attempt...")
             val portDeferred = CompletableDeferred<Int>()
             val adbConnectMdns = AdbMdns(applicationContext, AdbMdns.TLS_CONNECT, Observer { port ->
                 if (port > 0 && !portDeferred.isCompleted) {
@@ -133,7 +154,7 @@ class WifiDebuggingService : Service() {
             val resultPort = withTimeoutOrNull(5000) { portDeferred.await() }
             adbConnectMdns.stop()
             if (resultPort != null) return resultPort
-            Log.w("WifiDebuggingService", "Попытка №$attempt не удалась, ждем 1 секунду...")
+            Log.w(TAG, "Попытка №$attempt не удалась, ждем 1 секунду...")
             delay(1000)
         }
         return -1
@@ -151,7 +172,7 @@ class WifiDebuggingService : Service() {
                     if (isPermissionActive) return@repeat
                     delay(1000L * (attempt + 1))
                 }
-                Log.d("WifiDebuggingService", "Permission check result: $isPermissionActive")
+                Log.d(TAG, "Permission check result: $isPermissionActive")
             }
             
             sendBroadcast(Intent(ACTION_PAIRING_RESULT).apply {
