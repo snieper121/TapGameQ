@@ -1,1 +1,0 @@
-/home/user/TapGameQ/app/rish/src/main/cpp/CMakeLists.txt

@@ -23,21 +23,23 @@ public class TapGameConfigManager extends ConfigManager {
     private final int managerAppId;
 
     public TapGameConfigManager(Context context) {
-        this.prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        this.managerAppId = context.getApplicationInfo().uid;
+        this.prefs = context != null ? context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE) : null;
+        this.managerAppId = context != null ? context.getApplicationInfo().uid : android.os.Process.myUid();
     }
 
     @Nullable
     @Override
     public ConfigPackageEntry find(int uid) {
         if (uid == managerAppId) {
-            return new ConfigPackageEntry(uid, new ArrayList<>(), FLAG_ALLOWED);
+            return createConfigPackageEntry(uid, new ArrayList<>(), FLAG_ALLOWED);
         }
         
-        boolean isAllowed = prefs.getBoolean(KEY_ALLOWED_UID + uid, false);
-        if (isAllowed) {
-            List<String> packages = getPackagesForUid(uid);
-            return new ConfigPackageEntry(uid, packages, FLAG_ALLOWED);
+        if (prefs != null) {
+            boolean isAllowed = prefs.getBoolean(KEY_ALLOWED_UID + uid, false);
+            if (isAllowed) {
+                List<String> packages = getPackagesForUid(uid);
+                return createConfigPackageEntry(uid, packages, FLAG_ALLOWED);
+            }
         }
         
         return null;
@@ -45,6 +47,8 @@ public class TapGameConfigManager extends ConfigManager {
 
     @Override
     public void update(int uid, List<String> packages, int mask, int values) {
+        if (prefs == null) return;
+        
         SharedPreferences.Editor editor = prefs.edit();
         
         if ((mask & FLAG_ALLOWED) != 0) {
@@ -61,6 +65,8 @@ public class TapGameConfigManager extends ConfigManager {
 
     @Override
     public void remove(int uid) {
+        if (prefs == null) return;
+        
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove(KEY_ALLOWED_UID + uid);
         editor.remove(KEY_PACKAGES + uid);
@@ -68,6 +74,8 @@ public class TapGameConfigManager extends ConfigManager {
     }
 
     private List<String> getPackagesForUid(int uid) {
+        if (prefs == null) return new ArrayList<>();
+        
         String packagesStr = prefs.getString(KEY_PACKAGES + uid, "");
         if (packagesStr.isEmpty()) {
             return new ArrayList<>();
@@ -83,7 +91,34 @@ public class TapGameConfigManager extends ConfigManager {
     }
 
     private void savePackagesForUid(int uid, List<String> packages) {
+        if (prefs == null) return;
+        
         String packagesStr = String.join(",", packages);
         prefs.edit().putString(KEY_PACKAGES + uid, packagesStr).apply();
+    }
+
+    // Создаем ConfigPackageEntry через фабричный метод
+    private ConfigPackageEntry createConfigPackageEntry(int uid, List<String> packages, int flags) {
+        return new ConfigPackageEntry() {
+            @Override
+            public int getUid() {
+                return uid;
+            }
+
+            @Override
+            public List<String> getPackages() {
+                return packages;
+            }
+
+            @Override
+            public int getFlags() {
+                return flags;
+            }
+
+            @Override
+            public boolean isAllowed() {
+                return (flags & FLAG_ALLOWED) != 0;
+            }
+        };
     }
 }
