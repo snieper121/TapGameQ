@@ -21,6 +21,7 @@ import com.example.tapgame.utils.PermissionChecker
 import com.example.tapgame.server.MyPersistentServer
 import kotlinx.coroutines.*
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.first
 import moe.shizuku.manager.adb.*
 import java.net.ConnectException
 
@@ -312,7 +313,11 @@ class WifiDebuggingService : Service() {
             
             // Получаем порт из DataStore
             runBlocking {
-                val connectPort = settingsDataStore.adbConnectPortFlow.first()
+                var connectPort = -1
+                settingsDataStore.adbConnectPortFlow.collect { port ->
+                    connectPort = port
+                    return@runBlocking
+                }
                 
                 if (connectPort != -1) {
                     val adbClient = AdbClient(localIp, connectPort, key)
