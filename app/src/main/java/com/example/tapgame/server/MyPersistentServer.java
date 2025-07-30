@@ -15,8 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import moe.shizuku.server.IShizukuApplication;
-import rikka.shizuku.server.Service;
-import rikka.shizuku.server.UserServiceManager;
 import rikka.rish.RishConfig;
 import rikka.shizuku.ShizukuApiConstants;
 import rikka.shizuku.server.ClientRecord;
@@ -26,7 +24,7 @@ import com.example.tapgame.server.IMyPermissionServer;
 
 import java.util.List;
 
-public class MyPersistentServer extends Service<UserServiceManager, TapGameClientManager, TapGameConfigManager> {
+public class MyPersistentServer {
 
     private static final String TAG = "TapGameServer";
     private static final String MANAGER_APPLICATION_ID = "com.example.tapgame";
@@ -58,8 +56,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     private final SettingsDataStore settingsDataStore;
 
     public MyPersistentServer() {
-        super();
-
         HandlerUtil.setMainHandler(mainHandler);
 
         Log.i(TAG, "starting TapGame server...");
@@ -75,9 +71,9 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         // Упрощенная версия получения managerAppId
         managerAppId = android.os.Process.myUid();
 
-        // Получаем менеджеры через методы базового класса
-        configManager = getConfigManager();
-        clientManager = getClientManager();
+        // Инициализируем менеджеры напрямую
+        configManager = new TapGameConfigManager(null);
+        clientManager = new TapGameClientManager(configManager);
 
         Log.i(TAG, "TapGame server started");
     }
@@ -86,7 +82,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         return PackageManager.PERMISSION_GRANTED; // Упрощенно
     }
 
-    @Override
     public void exit() {
         Log.i(TAG, "TapGame server exiting...");
         System.exit(0);
@@ -162,20 +157,5 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         if (callingUid == managerAppId) return true;
         if (clientRecord != null && clientRecord.allowed) return true;
         return checkCallingPermission() == PackageManager.PERMISSION_GRANTED;
-    }
-
-    @Override
-    public UserServiceManager onCreateUserServiceManager() {
-        return new TapGameUserServiceManager();
-    }
-
-    @Override
-    public TapGameClientManager onCreateClientManager() {
-        return new TapGameClientManager(configManager);
-    }
-
-    @Override
-    public TapGameConfigManager onCreateConfigManager() {
-        return new TapGameConfigManager(null);
     }
 }
