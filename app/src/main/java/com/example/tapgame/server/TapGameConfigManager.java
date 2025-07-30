@@ -96,7 +96,7 @@ public class TapGameConfigManager extends ConfigManager {
         String packagesStr = String.join(",", packages);
         prefs.edit().putString(KEY_PACKAGES + uid, packagesStr).apply();
     }
-
+    
     // Создаем ConfigPackageEntry через фабричный метод
     private ConfigPackageEntry createConfigPackageEntry(int uid, List<String> packages, int flags) {
         return new ConfigPackageEntry() {
@@ -118,6 +118,11 @@ public class TapGameConfigManager extends ConfigManager {
             @Override
             public boolean isAllowed() {
                 return (flags & FLAG_ALLOWED) != 0;
+            }
+
+            @Override
+            public boolean isDenied() {
+                return (flags & FLAG_DENIED) != 0;
             }
         };
     }

@@ -16,7 +16,6 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
-            aidl.srcDirs = ['src/main/aidl']  // ← ДОБАВИТЬ ЭТУ СТРОКУ
         }
     }
 
@@ -47,7 +46,6 @@ android {
 
     buildFeatures {
         compose true
-        aidl true
     }
 
     composeOptions {
