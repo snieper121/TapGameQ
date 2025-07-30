@@ -85,51 +85,37 @@ class WifiDebuggingService : Service() {
             }
         }).apply { start() }
     }
-
-    // services/WifiDebuggingService.kt
-    private fun performPairingAndStartServer(code: String, port: Int) {
-        updateNotification(createWorkingNotification("Выполняется сопряжение..."))
-        serviceScope.launch {
-            var success = false
-            var error: Throwable? = null
-            try {
-                val keyStore = PreferenceAdbKeyStore(getSharedPreferences("adb_key", Context.MODE_PRIVATE))
-                val key = AdbKey(keyStore, "TapGameKey")
     
-                // Получаем локальный IP-адрес
-                val localIp = NetworkUtils.getLocalIpAddress(applicationContext) ?: "127.0.0.1"
-                Log.d("WifiDebuggingService", "Используем IP-адрес: $localIp")
-    
-                Log.d("WifiDebuggingService", "Шаг 1: Выполняем сопряжение...")
-                val pairingClient = AdbPairingClient(localIp, port, code, key)
-                pairingClient.start()
-                pairingClient.close()
-                Log.d("WifiDebuggingService", "Сопряжение успешно.")
-    
-                updateNotification(createWorkingNotification("Запуск службы..."))
-                Log.d("WifiDebuggingService", "Шаг 2: Ищем порт для подключения...")
-                val connectPort = findAdbConnectPort()
-                if (connectPort == -1) throw Exception("Не удалось найти порт для подключения.")
-                settingsDataStore.setAdbConnectPort(connectPort)
-                Log.d("WifiDebuggingService", "Порт для подключения найден: $connectPort")
-    
-                Log.d("WifiDebuggingService", "Шаг 3: Подключаемся и запускаем сервер-маркер...")
-                val adbClient = AdbClient(localIp, connectPort, key)
-                adbClient.connect()
-    
-                adbClient.shell("killall -9 sh")
-                adbClient.shell("exec -a tapgame_marker sleep 9999999")
-                adbClient.close()
-                Log.d("WifiDebuggingService", "Сервер-маркер успешно запущен.")
-                
-                success = true
-            } catch (e: Throwable) {
-                Log.e("WifiDebuggingService", "Ошибка на этапе сопряжения или запуска", e)
-                error = e
-                success = false
-            } finally {
-                handleResult(success, error)
+    private suspend fun performPairingAndStartServer() {
+        try {
+            // Запускаем наш сервер напрямую
+            Log.d(TAG, "Starting MyPersistentServer...")
+            
+            // Создаем экземпляр сервера
+            val server = MyPersistentServer()
+            
+            // Запускаем сервер в отдельном потоке
+            withContext(Dispatchers.IO) {
+                try {
+                    MyPersistentServer.main(arrayOf())
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error starting server", e)
+                }
             }
+            
+            // Ждем запуска сервера
+            delay(2000)
+            
+            // Привязываемся к серверу
+            bindToPermissionServer()
+            
+            // Отключаем Wi-Fi отладку
+            disableWifiDebugging()
+            
+            Log.d(TAG, "Server started successfully")
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in performPairingAndStartServer", e)
         }
     }
 
