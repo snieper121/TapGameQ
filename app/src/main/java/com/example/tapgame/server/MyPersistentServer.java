@@ -157,7 +157,7 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
 
     // IShizukuService implementation - только методы, которые не final
     @Override
-    public void attachApplication(IShizukuApplication application, Bundle args) throws RemoteException {
+    public void attachApplication(IShizukuApplication application, Bundle args) {
         Log.d(TAG, "attachApplication called");
 
         // Автоматически добавляем клиента с разрешениями
@@ -181,22 +181,22 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     @Override
-    public void dispatchPackageChanged(Intent intent) throws RemoteException {
+    public void dispatchPackageChanged(Intent intent) {
         Log.d(TAG, "dispatchPackageChanged called");
     }
 
     @Override
-    public boolean isHidden(int uid) throws RemoteException {
+    public boolean isHidden(int uid) {
         return uid == managerAppId;
     }
 
     @Override
-    public void dispatchPermissionConfirmationResult(int requestUid, int requestPid, int requestCode, Bundle data) throws RemoteException {
+    public void dispatchPermissionConfirmationResult(int requestUid, int requestPid, int requestCode, Bundle data) {
         Log.d(TAG, "dispatchPermissionConfirmationResult called");
     }
 
     @Override
-    public int getFlagsForUid(int uid, int mask) throws RemoteException {
+    public int getFlagsForUid(int uid, int mask) {
         if (uid == managerAppId) return mask;
 
         // Проверяем клиентов
@@ -209,7 +209,7 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     @Override
-    public void updateFlagsForUid(int uid, int mask, int value) throws RemoteException {
+    public void updateFlagsForUid(int uid, int mask, int value) {
         Log.d(TAG, "updateFlagsForUid: uid=" + uid + ", mask=" + mask + ", value=" + value);
     }
 
