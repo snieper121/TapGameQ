@@ -146,7 +146,8 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         Log.d(TAG, "updateFlagsForUid: uid=" + uid + ", mask=" + mask + ", value=" + value);
     }
 
-    public void showPermissionConfirmation(int requestUid, Object clientRecord, int requestCode, int requestUid2, int requestPid2) {
+    @Override
+    public void showPermissionConfirmation(int requestUid, ClientRecord clientRecord, int requestCode, int requestUid2, int requestPid2) {
         // Автоматически предоставляем разрешения
         Log.d(TAG, "showPermissionConfirmation: auto-granting");
         setPermissionSaved(true);
