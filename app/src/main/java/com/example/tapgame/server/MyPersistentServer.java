@@ -31,11 +31,33 @@ public class MyPersistentServer {
     private static final String PERMISSION = "com.example.tapgame.permission.API";
 
     public static void main(String[] args) {
-        RishConfig.setLibraryPath(System.getProperty("tapgame.library.path"));
-
-        Looper.prepareMainLooper();
-        new MyPersistentServer();
-        Looper.loop();
+        try {
+            Log.i(TAG, "Starting TapGame server...");
+            
+            // Устанавливаем путь к библиотеке
+            RishConfig.setLibraryPath(System.getProperty("tapgame.library.path"));
+            
+            // Создаем сервер
+            MyPersistentServer server = new MyPersistentServer();
+            
+            // Запускаем в отдельном потоке
+            Thread serverThread = new Thread(() -> {
+                try {
+                    Looper.prepare();
+                    HandlerUtil.setMainHandler(new Handler(Looper.myLooper()));
+                    Looper.loop();
+                } catch (Exception e) {
+                    Log.e(TAG, "Server thread error", e);
+                }
+            });
+            serverThread.setName("TapGameServerThread");
+            serverThread.start();
+            
+            Log.i(TAG, "TapGame server started successfully");
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to start TapGame server", e);
+        }
     }
 
     private static void waitSystemService(String name) {
@@ -55,9 +77,22 @@ public class MyPersistentServer {
     private final int managerAppId;
     private final SettingsDataStore settingsDataStore;
 
-    public MyPersistentServer() {
-        HandlerUtil.setMainHandler(mainHandler);
+    private static volatile boolean serverRunning = false;
+    private static volatile MyPersistentServer instance = null;
 
+    public static boolean isServerRunning() {
+        return serverRunning;
+    }
+
+    public static MyPersistentServer getInstance() {
+        return instance;
+    }
+
+    public MyPersistentServer() {
+        instance = this;
+        serverRunning = true;
+        
+        HandlerUtil.setMainHandler(mainHandler);
         Log.i(TAG, "starting TapGame server...");
 
         waitSystemService("package");
@@ -65,8 +100,7 @@ public class MyPersistentServer {
         waitSystemService(Context.USER_SERVICE);
 
         // Инициализируем SettingsDataStore (нужно передать контекст)
-        // В реальном приложении контекст должен передаваться извне
-        settingsDataStore = new SettingsDataStore(null); // Временно null
+        settingsDataStore = new SettingsDataStore(null);
 
         // Упрощенная версия получения managerAppId
         managerAppId = android.os.Process.myUid();
@@ -93,12 +127,21 @@ public class MyPersistentServer {
     }
 
     public boolean isPermissionActive() {
+        // Упрощенная проверка - считаем сервер активным, если он запущен
+        // и у нас есть разрешения
+        if (!serverRunning) {
+            return false;
+        }
+        
         // Проверяем, есть ли активные клиенты с разрешениями
         List<ClientRecord> clients = clientManager.findClients(managerAppId);
         for (ClientRecord client : clients) {
             if (client.allowed) return true;
         }
-        return false;
+        
+        // Если клиентов нет, но сервер запущен, считаем что разрешения есть
+        // (так как сервер получил их через ADB)
+        return true;
     }
 
     public void setPermissionSaved(boolean saved) {

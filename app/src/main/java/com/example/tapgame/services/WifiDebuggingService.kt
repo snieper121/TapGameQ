@@ -128,27 +128,52 @@ class WifiDebuggingService : Service() {
             
             Log.d(TAG, "Шаг 4: Запускаем MyPersistentServer...")
             try {
+                updateNotification(createWorkingNotification("Запуск встроенного сервера..."))
+                
                 MyPersistentServer.main(arrayOf())
                 delay(3000) // Ждем запуска сервера
 
-                // Проверяем встроенный сервер
-                val tapGameServerActive = withContext(Dispatchers.IO) {
-                    PermissionChecker.isTapGameServerActive(applicationContext)
+                // Проверяем, запустился ли сервер
+                val serverRunning = MyPersistentServer.isServerRunning()
+                Log.d(TAG, "Server running: $serverRunning")
+                
+                if (serverRunning) {
+                    updateNotification(createWorkingNotification("Сервер запущен, проверяем активность..."))
+                    
+                    // Проверяем встроенный сервер
+                    val tapGameServerActive = withContext(Dispatchers.IO) {
+                        PermissionChecker.isTapGameServerActive(applicationContext)
+                    }
+                    Log.d(TAG, "TapGame server active: $tapGameServerActive")
+                    
+                    if (tapGameServerActive) {
+                        updateNotification(createWorkingNotification("Сервер активен, отключаем WiFi..."))
+                        
+                        // Отключаем WiFi отладку
+                        disableWifiDebugging()
+                        
+                        // Проверяем разрешения после отключения WiFi
+                        delay(2000)
+                        val permissionsAfterWifi = withContext(Dispatchers.IO) {
+                            PermissionChecker.isTapGameServerActive(applicationContext)
+                        }
+                        
+                        Log.d(TAG, "TapGame permissions after WiFi disabled: $permissionsAfterWifi")
+                        
+                        if (permissionsAfterWifi) {
+                            updateNotification(createWorkingNotification("✅ Сервер работает без WiFi!"))
+                        } else {
+                            updateNotification(createWorkingNotification("❌ Сервер не работает без WiFi"))
+                        }
+                    } else {
+                        updateNotification(createWorkingNotification("❌ Сервер не активен"))
+                    }
+                } else {
+                    updateNotification(createWorkingNotification("❌ Сервер не запустился"))
                 }
-                Log.d(TAG, "TapGame server active: $tapGameServerActive")
-
-                // Отключаем WiFi отладку
-                disableWifiDebugging()
-
-                // Проверяем разрешения после отключения WiFi
-                delay(2000)
-                val permissionsAfterWifi = withContext(Dispatchers.IO) {
-                    PermissionChecker.isTapGameServerActive(applicationContext)
-                }
-
-                Log.d(TAG, "TapGame permissions after WiFi disabled: $permissionsAfterWifi")
             } catch (e: Exception) {
                 Log.e(TAG, "Error starting server", e)
+                updateNotification(createWorkingNotification("❌ Ошибка запуска сервера: ${e.message}"))
             }
             
             success = true

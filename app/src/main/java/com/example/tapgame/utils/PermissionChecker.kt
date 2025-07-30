@@ -80,7 +80,20 @@ object PermissionChecker {
     // Проверка встроенного сервера TapGame (работает даже без WiFi отладки)
     suspend fun isTapGameServerActive(context: Context): Boolean = withContext(Dispatchers.IO) {
         try {
-            val server = MyPersistentServer()
+            // Сначала проверяем, запущен ли сервер
+            val isRunning = MyPersistentServer.isServerRunning()
+            if (!isRunning) {
+                Log.d("PermissionChecker", "TapGame server is not running")
+                return@withContext false
+            }
+            
+            // Получаем экземпляр сервера
+            val server = MyPersistentServer.getInstance()
+            if (server == null) {
+                Log.d("PermissionChecker", "TapGame server instance is null")
+                return@withContext false
+            }
+            
             val isActive = server.isPermissionActive()
             Log.d("PermissionChecker", "TapGame server active: $isActive")
             isActive
