@@ -14,6 +14,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import moe.shizuku.server.IShizukuApplication;
 import rikka.shizuku.server.Service;
 import rikka.shizuku.server.UserServiceManager;
 import rikka.rish.RishConfig;
@@ -120,7 +121,8 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     // Упрощенные методы для совместимости с Shizuku
-    public void attachApplication(Object application, Bundle args) {
+    @Override
+    public void attachApplication(IShizukuApplication application, Bundle args) {
         Log.d(TAG, "attachApplication called");
         setPermissionSaved(true);
     }
