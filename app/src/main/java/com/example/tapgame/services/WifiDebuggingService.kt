@@ -18,7 +18,9 @@ import com.example.tapgame.R
 import com.example.tapgame.data.SettingsDataStore
 import com.example.tapgame.utils.NetworkUtils
 import com.example.tapgame.utils.PermissionChecker
+import com.example.tapgame.server.MyPersistentServer
 import kotlinx.coroutines.*
+import kotlinx.coroutines.runBlocking
 import moe.shizuku.manager.adb.*
 import java.net.ConnectException
 
@@ -123,10 +125,26 @@ class WifiDebuggingService : Service() {
             adbClient.close()
             Log.d(TAG, "Сервер-маркер успешно запущен.")
             
-            // Запускаем наш сервер
             Log.d(TAG, "Шаг 4: Запускаем MyPersistentServer...")
             try {
-                // MyPersistentServer.main(arrayOf()) // Закомментировано, если этого класса еще нет
+                MyPersistentServer.main(arrayOf())
+                delay(3000) // Ждем запуска сервера
+
+                // Проверяем встроенный сервер
+                val tapGameServerActive = withContext(Dispatchers.IO) {
+                    PermissionChecker.isTapGameServerActive(applicationContext)
+                }
+                Log.d(TAG, "TapGame server active: $tapGameServerActive")
+
+                // Отключаем WiFi отладку
+                disableWifiDebugging()
+
+                // Проверяем разрешения после отключения WiFi
+                delay(2000)
+                val permissionsAfterWifi = withContext(Dispatchers.IO) {
+                    PermissionChecker.testAfterWifiDisabled(applicationContext)
+                }
+                Log.d(TAG, "TapGame permissions after WiFi disabled: $permissionsAfterWifi")
             } catch (e: Exception) {
                 Log.e(TAG, "Error starting server", e)
             }
@@ -168,7 +186,9 @@ class WifiDebuggingService : Service() {
             if (success) {
                 // Добавляем несколько попыток проверки
                 repeat(3) { attempt ->
-                    isPermissionActive = PermissionChecker.isPermissionActive(applicationContext)
+                    isPermissionActive = withContext(Dispatchers.IO) {
+                        PermissionChecker.isTapGameServerActive(applicationContext)
+                    }
                     if (isPermissionActive) return@repeat
                     delay(1000L * (attempt + 1))
                 }
@@ -279,6 +299,33 @@ class WifiDebuggingService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(CHANNEL_ID, "Сопряжение ADB", NotificationManager.IMPORTANCE_HIGH)
             getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
+        }
+    }
+
+    private fun disableWifiDebugging() {
+        try {
+            Log.d(TAG, "Отключаем WiFi отладку...")
+            // Отправляем команду через ADB для отключения WiFi отладки
+            val keyStore = PreferenceAdbKeyStore(getSharedPreferences("adb_key", Context.MODE_PRIVATE))
+            val key = AdbKey(keyStore, "TapGameKey")
+            val localIp = NetworkUtils.getLocalIpAddress(applicationContext) ?: "127.0.0.1"
+            
+            // Получаем порт из DataStore
+            runBlocking {
+                val connectPort = settingsDataStore.adbConnectPortFlow.first()
+                
+                if (connectPort != -1) {
+                    val adbClient = AdbClient(localIp, connectPort, key)
+                    adbClient.connect()
+                    adbClient.shell("settings put global adb_wifi_enabled 0")
+                    adbClient.close()
+                    Log.d(TAG, "WiFi отладка отключена")
+                } else {
+                    Log.w(TAG, "Не удалось получить порт для отключения WiFi отладки")
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Ошибка при отключении WiFi отладки", e)
         }
     }
 }
