@@ -121,7 +121,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     // Упрощенные методы для совместимости с Shizuku
-    @Override
     public void attachApplication(IShizukuApplication application, Bundle args) {
         Log.d(TAG, "attachApplication called");
         setPermissionSaved(true);
@@ -148,7 +147,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         Log.d(TAG, "updateFlagsForUid: uid=" + uid + ", mask=" + mask + ", value=" + value);
     }
 
-    @Override
     public void showPermissionConfirmation(int requestUid, ClientRecord clientRecord, int requestCode, int requestUid2, int requestPid2) {
         // Автоматически предоставляем разрешения
         Log.d(TAG, "showPermissionConfirmation: auto-granting");
@@ -160,7 +158,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         return callingUid == managerAppId;
     }
 
-    @Override
     public boolean checkCallerPermission(String func, int callingUid, int callingPid, @Nullable ClientRecord clientRecord) {
         if (callingUid == managerAppId) return true;
         if (clientRecord != null && clientRecord.allowed) return true;
