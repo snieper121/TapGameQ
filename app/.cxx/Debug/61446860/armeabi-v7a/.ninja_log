@@ -1,0 +1,26 @@
+# ninja log v5
+21	165	1753861089	CMakeFiles/rish_starter.dir/cgroup.cpp.o	c219de20f918f6db
+34	165	1753861089	CMakeFiles/rish.dir/main.cpp.o	5ea3a63f047d75cb
+15	200	1753861090	CMakeFiles/rish_starter.dir/selinux.cpp.o	7bc0043acec241ee
+25	209	1753861090	CMakeFiles/rish_starter.dir/android.cpp.o	371c95e0cae6d53
+28	216	1753861090	CMakeFiles/rish_starter.dir/helper.cpp.o	40c2c2a78260bb30
+9	331	1753861090	CMakeFiles/rish_starter.dir/misc.cpp.o	5a7c3d261abec9eb
+36	577	1753861090	CMakeFiles/rish.dir/pts.cpp.o	7efc1d7828f4af28
+0	736	1753861090	CMakeFiles/rish_starter.dir/starter.cpp.o	a5d28d3220a49434
+38	741	1753861090	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	29c9d7313d19fd3
+45	815	1753861090	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	3c68c9f7ff0e35f9
+736	849	1753861090	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/armeabi-v7a/rish_starter	cac038aa81b8e757
+815	1007	1753861090	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/armeabi-v7a/librish.so	d0324e51dcb9f051
+0	7	0	clean	ac3775bcbd8eb20c
+19	141	1753861377	CMakeFiles/rish.dir/main.cpp.o	5ea3a63f047d75cb
+10	199	1753861377	CMakeFiles/rish_starter.dir/cgroup.cpp.o	c219de20f918f6db
+14	206	1753861377	CMakeFiles/rish_starter.dir/android.cpp.o	371c95e0cae6d53
+16	273	1753861377	CMakeFiles/rish_starter.dir/helper.cpp.o	40c2c2a78260bb30
+7	290	1753861377	CMakeFiles/rish_starter.dir/misc.cpp.o	5a7c3d261abec9eb
+9	319	1753861377	CMakeFiles/rish_starter.dir/selinux.cpp.o	7bc0043acec241ee
+20	612	1753861378	CMakeFiles/rish.dir/pts.cpp.o	7efc1d7828f4af28
+6	650	1753861378	CMakeFiles/rish_starter.dir/starter.cpp.o	a5d28d3220a49434
+651	735	1753861378	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/armeabi-v7a/rish_starter	cac038aa81b8e757
+35	780	1753861378	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	3c68c9f7ff0e35f9
+30	807	1753861378	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	29c9d7313d19fd3
+807	862	1753861378	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/armeabi-v7a/librish.so	d0324e51dcb9f051

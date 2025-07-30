@@ -128,11 +128,11 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     }
 
     // IMyPermissionServer implementation
-    public boolean isPermissionSaved() throws RemoteException {
+    public boolean isPermissionSaved() {
         return true; // Упрощенно
     }
 
-    public boolean isPermissionActive() throws RemoteException {
+    public boolean isPermissionActive() {
         // Проверяем, есть ли активные клиенты с разрешениями
         List<ClientRecord> clients = clientManager.findClients(managerAppId);
         for (ClientRecord client : clients) {
@@ -141,15 +141,15 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
         return false;
     }
 
-    public void setPermissionSaved(boolean saved) throws RemoteException {
+    public void setPermissionSaved(boolean saved) {
         Log.d(TAG, "Permission saved: " + saved);
     }
 
-    public boolean isShizukuActive() throws RemoteException {
+    public boolean isShizukuActive() {
         return isPermissionActive();
     }
 
-    public void requestShizukuPermission() throws RemoteException {
+    public void requestShizukuPermission() {
         // Автоматически предоставляем разрешения для нашего приложения
         Log.d(TAG, "requestShizukuPermission: auto-granting for TapGame");
         setPermissionSaved(true);
@@ -217,10 +217,6 @@ public class MyPersistentServer extends Service<UserServiceManager, TapGameClien
     public void showPermissionConfirmation(int requestUid, ClientRecord clientRecord, int requestCode, int requestUid2, int requestPid2) {
         // Автоматически предоставляем разрешения
         Log.d(TAG, "showPermissionConfirmation: auto-granting");
-        try {
-            setPermissionSaved(true);
-        } catch (RemoteException e) {
-            Log.e(TAG, "Error setting permission", e);
-        }
+        setPermissionSaved(true);
     }
 }
