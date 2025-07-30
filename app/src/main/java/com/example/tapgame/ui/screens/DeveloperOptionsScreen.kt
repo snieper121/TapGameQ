@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.font.FontFamily
 import androidx.core.content.ContextCompat
 import com.example.tapgame.data.SettingsDataStore
 import com.example.tapgame.services.WifiDebuggingService
@@ -45,6 +46,8 @@ fun DeveloperOptionsScreen(
 
     val isAdbPaired by settingsDataStore.isAdbPairedFlow.collectAsState(initial = false)
     var isPermissionSaved by remember { mutableStateOf(false) } // НОВОЕ СОСТОЯНИЕ
+    var isServerActive by remember { mutableStateOf<Boolean?>(null) }
+    var allPermissionsStatus by remember { mutableStateOf("") }
     var isPermissionActive by remember { mutableStateOf<Boolean?>(null) } // ИЗМЕНЕНО НА isPermissionActive
     var isLoading by remember { mutableStateOf(false) }
     var lastCheckTime by remember { mutableStateOf("") }
@@ -83,6 +86,50 @@ fun DeveloperOptionsScreen(
         }
     }
     
+    fun checkServerActive() {
+        if (isLoading) return
+        
+        isLoading = true
+        scope.launch {
+            try {
+                val result = PermissionChecker.isTapGameServerActive(context)
+                isServerActive = result
+                lastCheckTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+                    .format(Date())
+                
+                if (result) {
+                    snackbarHostState.showSnackbar("🖥️ Встроенный сервер: АКТИВЕН")
+                } else {
+                    snackbarHostState.showSnackbar("🖥️ Встроенный сервер: НЕ АКТИВЕН")
+                }
+            } catch (e: Exception) {
+                snackbarHostState.showSnackbar("Ошибка проверки сервера: ${e.message}")
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+    fun checkAllPermissions() {
+        if (isLoading) return
+        
+        isLoading = true
+        scope.launch {
+            try {
+                val status = PermissionChecker.checkAllPermissions(context)
+                allPermissionsStatus = status
+                lastCheckTime = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+                    .format(Date())
+                
+                snackbarHostState.showSnackbar("Проверка завершена - см. результат ниже")
+            } catch (e: Exception) {
+                snackbarHostState.showSnackbar("Ошибка комплексной проверки: ${e.message}")
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
     val pairingResultReceiver = remember {
         object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
@@ -284,6 +331,37 @@ fun DeveloperOptionsScreen(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("Начать сопряжение")
+                }
+            }
+            
+            Button(
+                onClick = { checkServerActive() },
+                enabled = !isLoading,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("🖥️ Проверить встроенный сервер")
+            }
+
+            Button(
+                onClick = { checkAllPermissions() },
+                enabled = !isLoading,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("🔍 Комплексная проверка")
+            }
+
+            // Показываем результат комплексной проверки
+            if (allPermissionsStatus.isNotEmpty()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                ) {
+                    Text(
+                        text = allPermissionsStatus,
+                        modifier = Modifier.padding(16.dp),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontFamily = FontFamily.Monospace
+                    )
                 }
             }
         }

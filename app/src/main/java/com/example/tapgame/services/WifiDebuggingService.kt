@@ -143,8 +143,9 @@ class WifiDebuggingService : Service() {
                 // Проверяем разрешения после отключения WiFi
                 delay(2000)
                 val permissionsAfterWifi = withContext(Dispatchers.IO) {
-                    PermissionChecker.testAfterWifiDisabled(applicationContext)
+                    PermissionChecker.isTapGameServerActive(applicationContext)
                 }
+
                 Log.d(TAG, "TapGame permissions after WiFi disabled: $permissionsAfterWifi")
             } catch (e: Exception) {
                 Log.e(TAG, "Error starting server", e)

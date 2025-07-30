@@ -45,7 +45,7 @@ object PermissionChecker {
             Log.d("PermissionChecker", "ADB connect port not found, active permission check skipped.")
             return@withContext false
         }
-    
+
         try {
             val keyStore = PreferenceAdbKeyStore(context.getSharedPreferences("adb_key", Context.MODE_PRIVATE))
             val key = AdbKey(keyStore, "TapGameKey")
@@ -77,8 +77,7 @@ object PermissionChecker {
             false
         }
     }
-
-    // Проверка встроенного сервера TapGame
+    // Проверка встроенного сервера TapGame (работает даже без WiFi отладки)
     suspend fun isTapGameServerActive(context: Context): Boolean = withContext(Dispatchers.IO) {
         try {
             val server = MyPersistentServer()
@@ -91,40 +90,36 @@ object PermissionChecker {
         }
     }
 
-    // Комплексная проверка разрешений
-    suspend fun checkTapGamePermissions(context: Context): Boolean = withContext(Dispatchers.IO) {
-        try {
-            val server = MyPersistentServer()
+    // Комплексная проверка всех разрешений
+    suspend fun checkAllPermissions(context: Context): String = withContext(Dispatchers.IO) {
+        val settingsDataStore = SettingsDataStore(context)
         
-            val serverActive = server.isPermissionActive()
-            val permissionsSaved = server.isPermissionSaved()
-            val shizukuActive = server.isShizukuActive()
+        // 1. Проверяем сохраненное разрешение
+        val isSaved = settingsDataStore.isAdbPairedFlow.first()
         
-            Log.d("PermissionChecker", "TapGame permissions check:")
-            Log.d("PermissionChecker", "  - Server active: $serverActive")
-            Log.d("PermissionChecker", "  - Permissions saved: $permissionsSaved")
-            Log.d("PermissionChecker", "  - Shizuku active: $shizukuActive")
-        
-            val result = serverActive && permissionsSaved && shizukuActive
-            Log.d("PermissionChecker", "TapGame permissions result: $result")
-        
-            result
+        // 2. Проверяем активное ADB соединение (только при WiFi отладке)
+        val isAdbActive = try {
+            isPermissionActive(context)
         } catch (e: Exception) {
-            Log.e("PermissionChecker", "Error checking TapGame permissions", e)
             false
         }
-    }
-
-    // Проверка после отключения WiFi отладки
-    suspend fun testAfterWifiDisabled(context: Context): Boolean = withContext(Dispatchers.IO) {
-        Log.d("PermissionChecker", "Testing TapGame permissions after WiFi debugging disabled...")
         
-        // Ждем немного после отключения WiFi
-        delay(3000)
+        // 3. Проверяем встроенный сервер (работает всегда)
+        val isServerActive = try {
+            isTapGameServerActive(context)
+        } catch (e: Exception) {
+            false
+        }
         
-        val hasPermissions = checkTapGamePermissions(context)
-        Log.d("PermissionChecker", "TapGame permissions after WiFi disabled: $hasPermissions")
+        val status = """
+            📱 Сохранено: ${if (isSaved) "✅" else "❌"}
+            🔗 ADB активен: ${if (isAdbActive) "✅" else "❌"}
+            🖥️ Сервер активен: ${if (isServerActive) "✅" else "❌"}
+            
+            ${if (isServerActive) "🎉 Встроенный сервер работает!" else "⚠️ Сервер не работает"}
+        """.trimIndent()
         
-        hasPermissions
+        Log.d("PermissionChecker", "All permissions check:\n$status")
+        status
     }
 }
