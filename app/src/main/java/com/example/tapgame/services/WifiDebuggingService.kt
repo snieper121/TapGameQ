@@ -21,6 +21,7 @@ import com.example.tapgame.utils.NetworkUtils
 import kotlinx.coroutines.*
 import moe.shizuku.manager.adb.*
 import java.net.ConnectException
+import com.example.tapgame.server.MyPersistentServer
 
 @SuppressLint("NewApi")
 class WifiDebuggingService : Service() {
