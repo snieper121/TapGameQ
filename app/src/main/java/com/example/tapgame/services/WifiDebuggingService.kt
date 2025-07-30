@@ -313,11 +313,7 @@ class WifiDebuggingService : Service() {
             
             // Получаем порт из DataStore
             runBlocking {
-                var connectPort = -1
-                settingsDataStore.adbConnectPortFlow.collect { port ->
-                    connectPort = port
-                    return@runBlocking
-                }
+                val connectPort = settingsDataStore.adbConnectPortFlow.first()
                 
                 if (connectPort != -1) {
                     val adbClient = AdbClient(localIp, connectPort, key)
