@@ -100,6 +100,7 @@ public class TapGameConfigManager extends ConfigManager {
     // Создаем ConfigPackageEntry через фабричный метод
     private ConfigPackageEntry createConfigPackageEntry(int uid, List<String> packages, int flags) {
         return new ConfigPackageEntry() {
+            
             public int getUid() {
                 return uid;
             }

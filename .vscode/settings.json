@@ -1,3 +1,13 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    // Ваши существующие настройки, например:
+    "java.configuration.updateBuildConfiguration": "automatic",
+
+    // Настройки для "Auto Run Command"
+    "autorun.commands": [
+        {
+            "command": "nix-shell -p cmake --run \"which cmake\"",
+            "runOn": "onFileChange",
+            "filter": ".*"
+        }
+    ]
 }
