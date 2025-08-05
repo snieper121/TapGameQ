@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import moe.shizuku.server.IShizukuApplication;
+import java.util.ArrayList;
+import rikka.shizuku.server.ConfigManager;
+import rikka.shizuku.server.ConfigPackageEntry;
 import rikka.rish.RishConfig;
 import rikka.shizuku.ShizukuApiConstants;
 import rikka.shizuku.server.ClientRecord;
@@ -71,7 +74,7 @@ public class MyPersistentServer {
     }
 
     @SuppressWarnings({"FieldCanBeLocal"})
-    private final Handler mainHandler = new Handler(Looper.myLooper());
+    private final Handler mainHandler;
     private final TapGameClientManager clientManager;
     private final TapGameConfigManager configManager;
     private final int managerAppId;
@@ -88,27 +91,39 @@ public class MyPersistentServer {
         return instance;
     }
 
+    // конструктор (строки 94-128):
     public MyPersistentServer() {
         instance = this;
         serverRunning = true;
         
+        // Подготавливаем Looper для текущего потока
+        if (Looper.myLooper() == null) {
+            Looper.prepare();
+        }
+        
+        // Теперь можно создавать Handler
+        mainHandler = new Handler(Looper.myLooper());
+        
         HandlerUtil.setMainHandler(mainHandler);
         Log.i(TAG, "starting TapGame server...");
-
+    
         waitSystemService("package");
         waitSystemService(Context.ACTIVITY_SERVICE);
         waitSystemService(Context.USER_SERVICE);
-
+    
         // Инициализируем SettingsDataStore (нужно передать контекст)
         settingsDataStore = new SettingsDataStore(null);
-
+    
         // Упрощенная версия получения managerAppId
         managerAppId = android.os.Process.myUid();
-
+    
         // Инициализируем менеджеры напрямую
         configManager = new TapGameConfigManager(null);
         clientManager = new TapGameClientManager(configManager);
-
+    
+        // Восстанавливаем разрешения при старте сервера
+        configManager.restorePermissions();
+    
         Log.i(TAG, "TapGame server started");
     }
 
@@ -127,21 +142,34 @@ public class MyPersistentServer {
     }
 
     public boolean isPermissionActive() {
-        // Упрощенная проверка - считаем сервер активным, если он запущен
-        // и у нас есть разрешения
+        // Проверяем, запущен ли сервер
         if (!serverRunning) {
+            Log.d(TAG, "Server not running");
             return false;
         }
         
-        // Проверяем, есть ли активные клиенты с разрешениями
-        List<ClientRecord> clients = clientManager.findClients(managerAppId);
-        for (ClientRecord client : clients) {
-            if (client.allowed) return true;
+        // Проверяем сохраненные разрешения в конфиге
+        if (configManager != null) {
+            ConfigPackageEntry entry = configManager.find(managerAppId);
+            if (entry != null && entry.isAllowed()) {
+                Log.d(TAG, "Permission active from config");
+                return true;
+            }
         }
         
-        // Если клиентов нет, но сервер запущен, считаем что разрешения есть
-        // (так как сервер получил их через ADB)
-        return true;
+        // Проверяем, есть ли активные клиенты с разрешениями
+        if (clientManager != null) {
+            List<ClientRecord> clients = clientManager.findClients(managerAppId);
+            for (ClientRecord client : clients) {
+                if (client.allowed) {
+                    Log.d(TAG, "Permission active from client");
+                    return true;
+                }
+            }
+        }
+        
+        Log.d(TAG, "Permission not active");
+        return false;
     }
 
     public void setPermissionSaved(boolean saved) {
@@ -152,10 +180,19 @@ public class MyPersistentServer {
         return isPermissionActive();
     }
 
+    // метод requestShizukuPermission (строки 182-194):
     public void requestShizukuPermission() {
-        // Автоматически предоставляем разрешения для нашего приложения
-        Log.d(TAG, "requestShizukuPermission: auto-granting for TapGame");
+        Log.d(TAG, "requestShizukuPermission: granting for TapGame");
+        
+        // Предоставляем разрешения через configManager
+        if (configManager != null) {
+            List<String> packages = new ArrayList<>();
+            packages.add(MANAGER_APPLICATION_ID);
+            configManager.update(managerAppId, packages, ConfigManager.FLAG_ALLOWED, ConfigManager.FLAG_ALLOWED);
+        }
+        
         setPermissionSaved(true);
+        Log.d(TAG, "Permission granted and saved");
     }
 
     // Упрощенные методы для совместимости с Shizuku

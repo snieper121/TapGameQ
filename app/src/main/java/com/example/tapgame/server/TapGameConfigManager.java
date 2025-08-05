@@ -27,6 +27,21 @@ public class TapGameConfigManager extends ConfigManager {
         this.managerAppId = context != null ? context.getApplicationInfo().uid : android.os.Process.myUid();
     }
 
+    // Добавить после строки 29 (после конструктора):
+    public void restorePermissions() {
+        if (prefs == null) return;
+        
+        Log.d(TAG, "Restoring permissions from storage...");
+        
+        // Восстанавливаем разрешения для manager app
+        boolean managerAllowed = prefs.getBoolean(KEY_ALLOWED_UID + managerAppId, false);
+        if (managerAllowed) {
+            Log.d(TAG, "Manager app permissions restored");
+        }
+        
+        // Можно добавить восстановление для других UID если нужно
+    }
+
     @Nullable
     @Override
     public ConfigPackageEntry find(int uid) {
@@ -45,6 +60,7 @@ public class TapGameConfigManager extends ConfigManager {
         return null;
     }
 
+    // Изменить метод update (строки 63-83):
     @Override
     public void update(int uid, List<String> packages, int mask, int values) {
         if (prefs == null) return;
@@ -57,6 +73,9 @@ public class TapGameConfigManager extends ConfigManager {
             
             if (allowed) {
                 savePackagesForUid(uid, packages);
+                Log.d(TAG, "Permission granted and saved for UID: " + uid);
+            } else {
+                Log.d(TAG, "Permission denied and saved for UID: " + uid);
             }
         }
         
