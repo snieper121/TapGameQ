@@ -22,11 +22,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 import com.example.tapgame.ui.Screen
 import com.example.tapgame.ui.theme.TapGameTheme
-import com.example.tapgame.overlay.OverlayManager
+import com.example.tapgame.ui.screens.overlay.OverlayManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavController, onShowApps: () -> Unit) {
+    val context = LocalContext.current  // ДОБАВИТЬ ЭТУ СТРОКУ
     Scaffold(
         topBar = {
             Surface(

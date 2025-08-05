@@ -24,6 +24,18 @@
     <uses-permission 
         android:name="android.permission.WRITE_SECURE_SETTINGS" 
         tools:ignore="ProtectedPermissions" />
+    
+    <!-- Разрешения для GG Mouse Pro -->
+    <uses-permission android:name="android.permission.INJECT_EVENTS" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_FRAME_BUFFER" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" 
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESSIBILITY_SERVICE" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
    
     <application
         android:allowBackup="true"
@@ -59,6 +71,12 @@
                 <action android:name="com.example.mytapgameserver.server.IMyPermissionServer" />
             </intent-filter>
         </service>
+
+        <!-- Сервис плавающего оверлея -->
+        <service
+            android:name=".services.FloatingOverlayService"
+            android:enabled="true"
+            android:exported="false" />
 
         <receiver
             android:name=".receivers.WifiDebugStateReceiver"

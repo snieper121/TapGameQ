@@ -1,6 +1,3 @@
-// Файл: services/WifiDebuggingService.kt
-// ФИНАЛЬНАЯ ВЕРСИЯ С BROADCAST И НАДЕЖНЫМ ПОИСКОМ
-
 package com.example.tapgame.services
 
 import android.annotation.SuppressLint

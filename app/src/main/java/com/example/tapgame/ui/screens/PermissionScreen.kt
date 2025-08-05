@@ -19,7 +19,7 @@ import com.example.tapgame.data.SettingsDataStore
 import com.example.tapgame.ui.theme.AddButtonColor
 import com.example.tapgame.ui.theme.RemoveButtonColor
 import kotlinx.coroutines.launch
-import com.example.tapgame.overlay.OverlayManager
+import com.example.tapgame.ui.screens.overlay.OverlayManager
 
 @Composable
 fun PermissionScreen(onDismiss: () -> Unit, settingsDataStore: SettingsDataStore) {

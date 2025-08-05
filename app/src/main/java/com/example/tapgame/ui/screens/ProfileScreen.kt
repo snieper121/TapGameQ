@@ -36,7 +36,7 @@ import coil.request.ImageRequest
 
 import android.os.Handler
 import android.os.Looper
-import com.example.tapgame.overlay.OverlayManager
+import com.example.tapgame.ui.screens.overlay.OverlayManager
 import com.example.tapgame.data.SettingsDataStore
 //import com.example.tapgame.utils.FeedbackManager
 import com.example.tapgame.viewmodel.AppListViewModel
