@@ -147,24 +147,12 @@ class WifiDebuggingService : Service() {
                     Log.d(TAG, "TapGame server active: $tapGameServerActive")
                     
                     if (tapGameServerActive) {
-                        updateNotification(createWorkingNotification("Сервер активен, отключаем WiFi..."))
+                        updateNotification(createWorkingNotification("✅ Сервер активен! WiFi отладка остается включенной"))
                         
-                        // Отключаем WiFi отладку
-                        disableWifiDebugging()
+                        // НЕ отключаем WiFi отладку автоматически
+                        // Пользователь должен отключить её вручную
                         
-                        // Проверяем разрешения после отключения WiFi
-                        delay(2000)
-                        val permissionsAfterWifi = withContext(Dispatchers.IO) {
-                            PermissionChecker.isTapGameServerActive(applicationContext)
-                        }
-                        
-                        Log.d(TAG, "TapGame permissions after WiFi disabled: $permissionsAfterWifi")
-                        
-                        if (permissionsAfterWifi) {
-                            updateNotification(createWorkingNotification("✅ Сервер работает без WiFi!"))
-                        } else {
-                            updateNotification(createWorkingNotification("❌ Сервер не работает без WiFi"))
-                        }
+                        Log.d(TAG, "Server is active, WiFi debugging remains enabled")
                     } else {
                         updateNotification(createWorkingNotification("❌ Сервер не активен"))
                     }

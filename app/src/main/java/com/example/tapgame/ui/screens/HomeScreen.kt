@@ -22,6 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 import com.example.tapgame.ui.Screen
 import com.example.tapgame.ui.theme.TapGameTheme
+import com.example.tapgame.overlay.OverlayManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -133,6 +134,20 @@ fun HomeScreen(navController: NavController, onShowApps: () -> Unit) {
                             color = MaterialTheme.colorScheme.onSurface
                         )
                     }
+                }
+                Button(
+                    onClick = {
+                        if (OverlayManager.hasOverlayPermission(context)) {
+                            OverlayManager.startOverlay(context)
+                        } else {
+                            OverlayManager.requestOverlayPermission(context)
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
+                ) {
+                    Text("🧪 Тест оверлея")
                 }
             }
         }

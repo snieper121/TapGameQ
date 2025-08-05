@@ -13,6 +13,7 @@ import com.example.tapgame.ui.theme.TapGameTheme
 import com.example.tapgame.data.SettingsDataStore
 import com.example.tapgame.viewmodel.AppListViewModel
 import com.example.tapgame.utils.FeedbackManager
+import com.example.tapgame.ui.screens.PermissionTestScreen
 
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.draw.clip
@@ -177,6 +178,10 @@ fun MainScreen(settingsDataStore: SettingsDataStore, snackbarHostState: Snackbar
                         //onDismiss = { navController.popBackStack() }//,
                         settingsDataStore = settingsDataStore
                     )
+                }
+                composable("permission_test") {
+                    hideBottomBar = true
+                    PermissionTestScreen()
                 }
             }
         

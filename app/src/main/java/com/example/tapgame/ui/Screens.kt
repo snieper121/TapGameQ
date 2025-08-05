@@ -26,4 +26,5 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector)
     // Icons.Default.Tune - ползунки, современно
     // Icons.Default.SettingsSuggest - шестеренка с плюсом, может быть интересной
     object Settings : Screen("settings", "Настройки", Icons.Default.SettingsSuggest) // <-- Выберите здесь иконку для Settings
+    object PermissionTest : Screen("permission_test", "Тест разрешений", Icons.Default.BugReport)
 }

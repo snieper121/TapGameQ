@@ -19,6 +19,7 @@ import com.example.tapgame.data.SettingsDataStore
 import com.example.tapgame.ui.theme.AddButtonColor
 import com.example.tapgame.ui.theme.RemoveButtonColor
 import kotlinx.coroutines.launch
+import com.example.tapgame.overlay.OverlayManager
 
 @Composable
 fun PermissionScreen(onDismiss: () -> Unit, settingsDataStore: SettingsDataStore) {
@@ -163,6 +164,23 @@ fun PermissionScreen(onDismiss: () -> Unit, settingsDataStore: SettingsDataStore
                     )
                 }
             )
+        }
+        
+        Button(
+            onClick = {
+                if (!OverlayManager.hasOverlayPermission(context)) {
+                    OverlayManager.requestOverlayPermission(context)
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
+        ) {
+            Text("Разрешение на оверлей")
         }
 
         Spacer(modifier = Modifier.weight(1f))

@@ -34,6 +34,9 @@ import kotlinx.coroutines.launch
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
+import android.os.Handler
+import android.os.Looper
+import com.example.tapgame.overlay.OverlayManager
 import com.example.tapgame.data.SettingsDataStore
 //import com.example.tapgame.utils.FeedbackManager
 import com.example.tapgame.viewmodel.AppListViewModel
@@ -122,6 +125,11 @@ fun ProfileScreen(
                                             val intent = pm.getLaunchIntentForPackage(game.packageName)
                                             if (intent != null) {
                                                 startActivity(context, intent, null)
+                                                
+                                                // Запускаем оверлей через задержку
+                                                Handler(Looper.getMainLooper()).postDelayed({
+                                                    launchGameWithOverlay(context, game.packageName)
+                                                }, 2000) // 2 секунды задержки
                                             } else {
                                                 Log.w("ProfileScreen", "No launch intent for ${game.packageName}")
                                             }
@@ -171,4 +179,20 @@ fun ProfileScreen(
             }
         }
     )
+}
+private fun launchGameWithOverlay(context: Context, packageName: String) {
+    try {
+        Log.d("ProfileScreen", "Launching overlay for game: $packageName")
+        
+        // Проверяем разрешение на оверлей
+        if (OverlayManager.hasOverlayPermission(context)) {
+            OverlayManager.startOverlay(context)
+            Log.d("ProfileScreen", "Overlay started successfully")
+        } else {
+            Log.w("ProfileScreen", "Overlay permission not granted")
+            // Можно показать уведомление пользователю
+        }
+    } catch (e: Exception) {
+        Log.e("ProfileScreen", "Error launching overlay", e)
+    }
 }
