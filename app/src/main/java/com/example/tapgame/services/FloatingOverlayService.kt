@@ -47,8 +47,25 @@ class FloatingOverlayService : Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d(TAG, "FloatingOverlayService created")
-        windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        createFloatingIcon()
+        
+        // Проверяем разрешения через сервер
+        if (checkServerPermissions()) {
+            windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
+            createFloatingIcon()
+        } else {
+            Log.e(TAG, "Server permissions not available, stopping service")
+            stopSelf()
+        }
+    }
+
+    private fun checkServerPermissions(): Boolean {
+        return try {
+            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
+            server?.canShowOverlay() ?: false
+        } catch (e: Exception) {
+            Log.e(TAG, "Error checking server permissions", e)
+            false
+        }
     }
     
     private fun createFloatingIcon() {
@@ -164,27 +181,88 @@ class FloatingOverlayService : Service() {
     // Действия кнопок меню
     private fun performAction1() {
         Log.d(TAG, "Action 1: Quick Click")
-        // Здесь будет логика быстрого клика
+        if (checkServerPermissions()) {
+            // Здесь будет логика быстрого клика через сервер
+            performQuickClick()
+        }
     }
     
     private fun performAction2() {
         Log.d(TAG, "Action 2: Long Click")
-        // Здесь будет логика долгого клика
+        if (checkServerPermissions()) {
+            // Здесь будет логика долгого клика через сервер
+            performLongClick()
+        }
     }
     
     private fun performAction3() {
         Log.d(TAG, "Action 3: Swipe")
-        // Здесь будет логика свайпа
+        if (checkServerPermissions()) {
+            // Здесь будет логика свайпа через сервер
+            performSwipe()
+        }
     }
     
     private fun performAction4() {
         Log.d(TAG, "Action 4: Settings")
-        // Здесь будет открытие настроек
+        if (checkServerPermissions()) {
+            // Здесь будет открытие настроек через сервер
+            openSettings()
+        }
     }
     
     private fun performAction5() {
         Log.d(TAG, "Action 5: Close Menu")
         hideMenu()
+    }
+
+    // Реализация действий через сервер
+    private fun performQuickClick() {
+        try {
+            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
+            if (server?.canInjectInput() == true) {
+                Log.d(TAG, "Performing quick click via server")
+                // Здесь будет вызов метода сервера для симуляции клика
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error performing quick click", e)
+        }
+    }
+
+    private fun performLongClick() {
+        try {
+            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
+            if (server?.canInjectInput() == true) {
+                Log.d(TAG, "Performing long click via server")
+                // Здесь будет вызов метода сервера для симуляции долгого клика
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error performing long click", e)
+        }
+    }
+
+    private fun performSwipe() {
+        try {
+            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
+            if (server?.canInjectInput() == true) {
+                Log.d(TAG, "Performing swipe via server")
+                // Здесь будет вызов метода сервера для симуляции свайпа
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error performing swipe", e)
+        }
+    }
+
+    private fun openSettings() {
+        try {
+            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
+            if (server?.canControlWindows() == true) {
+                Log.d(TAG, "Opening settings via server")
+                // Здесь будет вызов метода сервера для открытия настроек
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error opening settings", e)
+        }
     }
     
     override fun onBind(intent: Intent?): IBinder? = null
