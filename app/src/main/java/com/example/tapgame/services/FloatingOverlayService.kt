@@ -61,7 +61,7 @@ class FloatingOverlayService : Service() {
     private fun checkServerPermissions(): Boolean {
         return try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            server?.canShowOverlay() ?: false
+            server?.isPermissionActive() ?: false
         } catch (e: Exception) {
             Log.e(TAG, "Error checking server permissions", e)
             false
@@ -220,7 +220,7 @@ class FloatingOverlayService : Service() {
     private fun performQuickClick() {
         try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            if (server?.canInjectInput() == true) {
+            if (server?.isPermissionActive() == true) {
                 Log.d(TAG, "Performing quick click via server")
                 // Здесь будет вызов метода сервера для симуляции клика
             }
@@ -232,7 +232,7 @@ class FloatingOverlayService : Service() {
     private fun performLongClick() {
         try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            if (server?.canInjectInput() == true) {
+            if (server?.isPermissionActive() == true) {
                 Log.d(TAG, "Performing long click via server")
                 // Здесь будет вызов метода сервера для симуляции долгого клика
             }
@@ -244,7 +244,7 @@ class FloatingOverlayService : Service() {
     private fun performSwipe() {
         try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            if (server?.canInjectInput() == true) {
+            if (server?.isPermissionActive() == true) {
                 Log.d(TAG, "Performing swipe via server")
                 // Здесь будет вызов метода сервера для симуляции свайпа
             }
@@ -256,7 +256,7 @@ class FloatingOverlayService : Service() {
     private fun openSettings() {
         try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            if (server?.canControlWindows() == true) {
+            if (server?.isPermissionActive() == true) {
                 Log.d(TAG, "Opening settings via server")
                 // Здесь будет вызов метода сервера для открытия настроек
             }
@@ -354,7 +354,7 @@ fun OverlayMenu(
         // Кнопка 5: Закрыть
         OverlayButton(
             icon = Icons.Default.Close,
-            label = "Закрыть",
+            label = "Zакрыть",
             onClick = onButton5Click
         )
     }

@@ -135,41 +135,6 @@ public class MyPersistentServer {
             Log.d(TAG, "Initial permissions granted and saved");
         }
     }
-    /*
-    public MyPersistentServer() {
-        instance = this;
-        serverRunning = true;
-        
-        // Подготавливаем Looper для текущего потока
-        if (Looper.myLooper() == null) {
-            Looper.prepare();
-        }
-        
-        // Теперь можно создавать Handler
-        mainHandler = new Handler(Looper.myLooper());
-        
-        HandlerUtil.setMainHandler(mainHandler);
-        Log.i(TAG, "starting TapGame server...");
-    
-        waitSystemService("package");
-        waitSystemService(Context.ACTIVITY_SERVICE);
-        waitSystemService(Context.USER_SERVICE);
-    
-        // Инициализируем SettingsDataStore (нужно передать контекст)
-        //settingsDataStore = new SettingsDataStore(null);
-    
-        // Упрощенная версия получения managerAppId
-        managerAppId = android.os.Process.myUid();
-    
-        // Инициализируем менеджеры напрямую
-        configManager = new TapGameConfigManager(null);
-        clientManager = new TapGameClientManager(configManager);
-    
-        // Восстанавливаем разрешения при старте сервера
-        configManager.restorePermissions();
-    
-        Log.i(TAG, "TapGame server started");
-    }*/
 
     private int checkCallingPermission() {
         return PackageManager.PERMISSION_GRANTED; // Упрощенно
@@ -201,42 +166,43 @@ public class MyPersistentServer {
         Log.d(TAG, "Permission active from ADB (server running)");
         return true;
     }
+    
+    public boolean canShowOverlay() {
+        Log.d(TAG, "Checking overlay permission");
+        return isPermissionActive();
+    }
+    
+    public boolean canInjectInput() {
+        Log.d(TAG, "Checking input injection permission");
+        return isPermissionActive();
+    }
+    
+    public boolean canCaptureScreen() {
+        Log.d(TAG, "Checking screen capture permission");
+        return isPermissionActive();
+    }
+    
+    public boolean canControlWindows() {
+        Log.d(TAG, "Checking window control permission");
+        return isPermissionActive();
+    }
+    
+    public void grantOverlayPermissions() {
+        Log.d(TAG, "Granting overlay permissions");
+        if (configManager != null) {
+            List<String> packages = new ArrayList<>();
+            packages.add(MANAGER_APPLICATION_ID);
+            configManager.update(managerAppId, packages, ConfigManager.FLAG_ALLOWED, ConfigManager.FLAG_ALLOWED);
+        }
+        setPermissionSaved(true);
+        Log.d(TAG, "Overlay permissions granted");
+    }
+
 
     // IMyPermissionServer implementation
     public boolean isPermissionSaved() {
         return true; // Упрощенно
     }
-/*
-    public boolean isPermissionActive() {
-        // Проверяем, запущен ли сервер
-        if (!serverRunning) {
-            Log.d(TAG, "Server not running");
-            return false;
-        }
-        
-        // Проверяем сохраненные разрешения в конфиге
-        if (configManager != null) {
-            ConfigPackageEntry entry = configManager.find(managerAppId);
-            if (entry != null && entry.isAllowed()) {
-                Log.d(TAG, "Permission active from config");
-                return true;
-            }
-        }
-        
-        // Проверяем, есть ли активные клиенты с разрешениями
-        if (clientManager != null) {
-            List<ClientRecord> clients = clientManager.findClients(managerAppId);
-            for (ClientRecord client : clients) {
-                if (client.allowed) {
-                    Log.d(TAG, "Permission active from client");
-                    return true;
-                }
-            }
-        }
-        
-        Log.d(TAG, "Permission not active");
-        return false;
-    }*/
 
     public void setPermissionSaved(boolean saved) {
         Log.d(TAG, "Permission saved: " + saved);

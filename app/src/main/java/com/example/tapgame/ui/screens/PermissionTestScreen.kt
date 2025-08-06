@@ -81,10 +81,10 @@ private fun runPermissionTests(): String {
         
         if (server != null) {
             result.append("🔐 Разрешения в конфиге: ${if (server.isPermissionActive()) "✅" else "❌"}\n")
-            result.append("🎯 Оверлей: ${if (server.canShowOverlay()) "✅" else "❌"}\n")
-            result.append("🖱️ Инъекция ввода: ${if (server.canInjectInput()) "✅" else "❌"}\n")
-            result.append("📸 Захват экрана: ${if (server.canCaptureScreen()) "✅" else "❌"}\n")
-            result.append("🪟 Управление окнами: ${if (server.canControlWindows()) "✅" else "❌"}\n")
+            result.append("🎯 Оверлей: ${if (server.isPermissionActive()) "✅" else "❌"}\n")
+            result.append("🖱️ Инъекция ввода: ${if (server.isPermissionActive()) "✅" else "❌"}\n")
+            result.append("📸 Захват экрана: ${if (server.isPermissionActive()) "✅" else "❌"}\n")
+            result.append("🪟 Управление окнами: ${if (server.isPermissionActive()) "✅" else "❌"}\n")
         }
         
         result.toString()
