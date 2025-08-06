@@ -261,6 +261,39 @@ public class MyPersistentServer {
         Log.d(TAG, "Permission granted and saved");
     }
 
+    // Новые методы для проверки разрешений оверлея
+    public boolean canShowOverlay() {
+        Log.d(TAG, "Checking overlay permission");
+        return isPermissionActive();
+    }
+
+    public boolean canInjectInput() {
+        Log.d(TAG, "Checking input injection permission");
+        return isPermissionActive();
+    }
+
+    public boolean canCaptureScreen() {
+        Log.d(TAG, "Checking screen capture permission");
+        return isPermissionActive();
+    }
+
+    public boolean canControlWindows() {
+        Log.d(TAG, "Checking window control permission");
+        return isPermissionActive();
+    }
+
+    // Метод для предоставления всех разрешений оверлея
+    public void grantOverlayPermissions() {
+        Log.d(TAG, "Granting overlay permissions");
+        if (configManager != null) {
+            List<String> packages = new ArrayList<>();
+            packages.add(MANAGER_APPLICATION_ID);
+            configManager.update(managerAppId, packages, ConfigManager.FLAG_ALLOWED, ConfigManager.FLAG_ALLOWED);
+        }
+        setPermissionSaved(true);
+        Log.d(TAG, "Overlay permissions granted");
+    }
+
     // Упрощенные методы для совместимости с Shizuku
     public void attachApplication(IShizukuApplication application, Bundle args) {
         Log.d(TAG, "attachApplication called");
