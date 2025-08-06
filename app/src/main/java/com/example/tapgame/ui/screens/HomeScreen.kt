@@ -19,6 +19,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.navigation.NavController
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.platform.LocalContext
 
 import com.example.tapgame.ui.Screen
 import com.example.tapgame.ui.theme.TapGameTheme
