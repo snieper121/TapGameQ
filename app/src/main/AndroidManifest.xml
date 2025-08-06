@@ -74,7 +74,7 @@
 
         <!-- Сервис плавающего оверлея -->
         <service
-            android:name=".services.FloatingOverlayService"
+            android:name=".services.SimpleFloatingOverlayService"
             android:enabled="true"
             android:exported="false" />
 

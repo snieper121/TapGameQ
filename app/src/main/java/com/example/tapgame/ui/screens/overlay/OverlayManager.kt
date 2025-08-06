@@ -3,7 +3,7 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import android.util.Log
-import com.example.tapgame.services.FloatingOverlayService
+import com.example.tapgame.services.SimpleFloatingOverlayService
 
 object OverlayManager {
     
@@ -11,13 +11,13 @@ object OverlayManager {
     
     fun startOverlay(context: Context) {
         Log.d(TAG, "Starting overlay")
-        val intent = Intent(context, FloatingOverlayService::class.java)
+        val intent = Intent(context, SimpleFloatingOverlayService::class.java)
         context.startService(intent)
     }
     
     fun stopOverlay(context: Context) {
         Log.d(TAG, "Stopping overlay")
-        val intent = Intent(context, FloatingOverlayService::class.java)
+        val intent = Intent(context, SimpleFloatingOverlayService::class.java)
         context.stopService(intent)
     }
     
