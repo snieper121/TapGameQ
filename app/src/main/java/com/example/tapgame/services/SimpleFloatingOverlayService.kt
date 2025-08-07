@@ -10,9 +10,25 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import android.content.res.Configuration
+import android.util.DisplayMetrics
 
 class SimpleFloatingOverlayService : Service() {
     
@@ -114,43 +130,58 @@ class SimpleFloatingOverlayService : Service() {
     private fun showMenu() {
         if (isMenuExpanded) return
         
-        Log.d(TAG, "Showing simple overlay menu")
+        Log.d(TAG, "Showing Compose overlay menu")
         
-        overlayMenuView = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            setBackgroundColor(ContextCompat.getColor(this@SimpleFloatingOverlayService, android.R.color.black))
-            setPadding(16, 16, 16, 16)
-            
-            // Кнопка 1
-            addView(createMenuButton("Клик") { performAction1() })
-            addView(createMenuButton("Долгий") { performAction2() })
-            addView(createMenuButton("Свайп") { performAction3() })
-            addView(createMenuButton("Настройки") { performAction4() })
-            addView(createMenuButton("Закрыть") { performAction5() })
+        // Определяем ориентацию экрана
+        val orientation = resources.configuration.orientation
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        
+        // Вычисляем ширину оверлея
+        val screenWidth = displayMetrics.widthPixels
+        val overlayWidth = when (orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> (screenWidth * 0.4).toInt()
+            else -> (screenWidth * 0.6).toInt()
+        }
+        
+        overlayMenuView = ComposeView(this).apply {
+            setContent {
+                OverlayMenu(
+                    onProfileEditorClick = { performAction1() },
+                    onButtonEditorClick = { performAction2() },
+                    onSettingsClick = { performAction3() },
+                    onCloseOverlayClick = { performAction4() },
+                    onReturnClick = { performAction5() }
+                )
+            }
         }
         
         val menuParams = WindowManager.LayoutParams(
-            WindowManager.LayoutParams.MATCH_PARENT,
+            overlayWidth,
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
         ).apply {
-            gravity = Gravity.TOP
-            y = 100
+            gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
+            y = 0
         }
         
         windowManager.addView(overlayMenuView, menuParams)
         isMenuExpanded = true
     }
     
-    private fun createMenuButton(text: String, onClick: () -> Unit): TextView {
-        return TextView(this).apply {
-            this.text = text
-            setTextColor(ContextCompat.getColor(this@SimpleFloatingOverlayService, android.R.color.white))
-            setPadding(8, 4, 8, 4)
-            setOnClickListener { onClick() }
+    private fun closeOverlay() {
+        try {
+            if (isMenuExpanded) {
+                windowManager.removeView(overlayMenuView)
+                isMenuExpanded = false
+            }
+            windowManager.removeView(floatingView)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error closing overlay", e)
         }
+        stopSelf()
     }
     
     private fun hideMenu() {
@@ -167,36 +198,35 @@ class SimpleFloatingOverlayService : Service() {
     }
     
     private fun performAction1() {
-        Log.d(TAG, "Action 1: Quick Click")
+        Log.d(TAG, "Action 1: Profile Editor")
         if (checkServerPermissions()) {
             performQuickClick()
         }
     }
     
     private fun performAction2() {
-        Log.d(TAG, "Action 2: Long Click")
+        Log.d(TAG, "Action 2: Button Editor")
         if (checkServerPermissions()) {
             performLongClick()
         }
     }
     
     private fun performAction3() {
-        Log.d(TAG, "Action 3: Swipe")
-        if (checkServerPermissions()) {
-            performSwipe()
-        }
-    }
-    
-    private fun performAction4() {
-        Log.d(TAG, "Action 4: Settings")
+        Log.d(TAG, "Action 3: Settings")
         if (checkServerPermissions()) {
             openSettings()
         }
     }
     
+    private fun performAction4() {
+        Log.d(TAG, "Action 4: Close Overlay")
+        closeOverlay()
+    }
+    
     private fun performAction5() {
-        Log.d(TAG, "Action 5: Close Menu")
+        Log.d(TAG, "Action 5: Return")
         hideMenu()
+        // Здесь можно добавить логику возврата
     }
 
     private fun performQuickClick() {
@@ -221,17 +251,6 @@ class SimpleFloatingOverlayService : Service() {
         }
     }
 
-    private fun performSwipe() {
-        try {
-            val server = com.example.tapgame.server.MyPersistentServer.getInstance()
-            if (server?.isPermissionActive() == true) {
-                Log.d(TAG, "Performing swipe via server")
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error performing swipe", e)
-        }
-    }
-
     private fun openSettings() {
         try {
             val server = com.example.tapgame.server.MyPersistentServer.getInstance()
@@ -242,7 +261,7 @@ class SimpleFloatingOverlayService : Service() {
             Log.e(TAG, "Error opening settings", e)
         }
     }
-    
+
     override fun onBind(intent: Intent?): IBinder? = null
     
     override fun onDestroy() {
@@ -256,5 +275,93 @@ class SimpleFloatingOverlayService : Service() {
         } catch (e: Exception) {
             Log.e(TAG, "Error removing views", e)
         }
+    }
+}
+
+@Composable
+private fun OverlayMenu(
+    onProfileEditorClick: () -> Unit,
+    onButtonEditorClick: () -> Unit,
+    onSettingsClick: () -> Unit,
+    onCloseOverlayClick: () -> Unit,
+    onReturnClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color(0xFF1976D2)) // Синий фон как на изображении
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // Редактор профиля
+        IconButton(
+            icon = android.R.drawable.ic_menu_save, // Иконка сохранения
+            text = "Редактор профиля",
+            onClick = onProfileEditorClick
+        )
+        
+        // Редактор кнопок
+        IconButton(
+            icon = android.R.drawable.ic_menu_edit, // Иконка редактирования
+            text = "Редактор кнопок",
+            onClick = onButtonEditorClick
+        )
+        
+        // Настройки
+        IconButton(
+            icon = android.R.drawable.ic_menu_manage, // Иконка настроек
+            text = "Настройки",
+            onClick = onSettingsClick
+        )
+        
+        // Закрыть наложение
+        IconButton(
+            icon = android.R.drawable.ic_menu_close_clear_cancel, // Иконка закрытия
+            text = "Закрыть наложение",
+            onClick = onCloseOverlayClick
+        )
+        
+        // Вернуться
+        IconButton(
+            icon = android.R.drawable.ic_menu_revert, // Иконка возврата
+            text = "Вернуться",
+            onClick = onReturnClick
+        )
+    }
+}
+
+@Composable
+private fun IconButton(
+    icon: Int,
+    text: String,
+    onClick: () -> Unit
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(8.dp)
+    ) {
+        androidx.compose.material3.IconButton(
+            onClick = onClick,
+            modifier = Modifier
+                .size(48.dp)
+                .clip(CircleShape)
+                .background(Color(0xFF1565C0)) // Темно-синий для иконок
+        ) {
+            Icon(
+                painter = painterResource(id = icon),
+                contentDescription = text,
+                tint = Color.White,
+                modifier = Modifier.size(24.dp)
+            )
+        }
+        
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 12.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 4.dp)
+        )
     }
 }

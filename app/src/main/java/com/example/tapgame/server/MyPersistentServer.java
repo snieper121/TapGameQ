@@ -115,7 +115,6 @@ public class MyPersistentServer {
         // Инициализируем менеджеры напрямую
         configManager = new TapGameConfigManager(null);
         clientManager = new TapGameClientManager(configManager);
-    
         // Восстанавливаем разрешения при старте сервера
         configManager.restorePermissions();
         // Предоставляем начальные разрешения
@@ -124,16 +123,15 @@ public class MyPersistentServer {
         Log.i(TAG, "TapGame server started");
     }
 
-    // Автоматически предоставляем разрешения при старте сервера
     private void grantInitialPermissions() {
         Log.d(TAG, "Granting initial permissions for TapGame");
-    
         if (configManager != null) {
             List<String> packages = new ArrayList<>();
             packages.add(MANAGER_APPLICATION_ID);
             configManager.update(managerAppId, packages, ConfigManager.FLAG_ALLOWED, ConfigManager.FLAG_ALLOWED);
-            Log.d(TAG, "Initial permissions granted and saved");
         }
+        setPermissionSaved(true);
+        Log.d(TAG, "Initial permissions granted and saved");
     }
 
     private int checkCallingPermission() {
