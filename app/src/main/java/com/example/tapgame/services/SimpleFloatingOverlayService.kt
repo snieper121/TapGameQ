@@ -29,6 +29,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.content.res.Configuration
 import android.util.DisplayMetrics
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.ViewTreeLifecycleOwner
 
 class SimpleFloatingOverlayService : Service() {
     
@@ -126,7 +130,7 @@ class SimpleFloatingOverlayService : Service() {
             showMenu()
         }
     }
-    
+    /*
     private fun showMenu() {
         if (isMenuExpanded) return
         
@@ -170,7 +174,63 @@ class SimpleFloatingOverlayService : Service() {
         windowManager.addView(overlayMenuView, menuParams)
         isMenuExpanded = true
     }
-    
+    */
+
+    private fun showMenu() {
+        if (isMenuExpanded) return
+
+        Log.d(TAG, "Showing Compose overlay menu")
+
+        // Определяем ориентацию экрана
+        val orientation = resources.configuration.orientation
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val screenWidth = displayMetrics.widthPixels
+        val overlayWidth = when (orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> (screenWidth * 0.4).toInt()
+            else -> (screenWidth * 0.6).toInt()
+        }
+
+        // Создаем ComposeView
+        val composeView = ComposeView(this)
+        composeView.setContent {
+            OverlayMenu(
+                onProfileEditorClick = { performAction1() },
+                onButtonEditorClick = { performAction2() },
+                onSettingsClick = { performAction3() },
+                onCloseOverlayClick = { performAction4() },
+                onReturnClick = { performAction5() }
+            )
+        }
+
+         // Создаем и назначаем фиктивный LifecycleOwner
+        val lifecycleOwner = object : LifecycleOwner {
+            private val lifecycleRegistry = LifecycleRegistry(this)
+            override val lifecycle: Lifecycle
+                get() = lifecycleRegistry
+            init {
+                lifecycleRegistry.currentState = Lifecycle.State.RESUMED
+            }
+        }
+        ViewTreeLifecycleOwner.set(composeView, lifecycleOwner)
+
+        overlayMenuView = composeView
+
+        val menuParams = WindowManager.LayoutParams(
+            overlayWidth,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
+        ).apply {
+            gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
+            y = 0
+        }
+
+        windowManager.addView(overlayMenuView, menuParams)
+        isMenuExpanded = true
+    }
+
     private fun closeOverlay() {
         try {
             if (isMenuExpanded) {
