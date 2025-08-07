@@ -1,0 +1,13 @@
+# ninja log v5
+1	91	1754588149	CMakeFiles/rish_starter.dir/cgroup.cpp.o	23312c73fc956141
+9	107	1754588149	CMakeFiles/rish.dir/main.cpp.o	672e368bd53b5780
+1	119	1754588149	CMakeFiles/rish_starter.dir/selinux.cpp.o	7c227b0664938c34
+4	150	1754588149	CMakeFiles/rish_starter.dir/helper.cpp.o	c14c5890ae7c000e
+1	151	1754588149	CMakeFiles/rish_starter.dir/misc.cpp.o	be86bd4a77581ea8
+4	162	1754588149	CMakeFiles/rish_starter.dir/android.cpp.o	c26cf247206c9616
+10	334	1754588150	CMakeFiles/rish.dir/pts.cpp.o	c95f013d1ec75c0
+17	478	1754588150	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	59777512cf57e201
+0	504	1754588150	CMakeFiles/rish_starter.dir/starter.cpp.o	7b31bd9fc1134b40
+504	545	1754588150	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/1a4p4d2f/obj/armeabi-v7a/rish_starter	3e4d7ee077c6ba10
+10	558	1754588150	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	f41ef1a6fd1ec7f4
+558	606	1754588150	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/1a4p4d2f/obj/armeabi-v7a/librish.so	b8abea298eb2b3f1

@@ -1,0 +1,26 @@
+# ninja log v5
+18	155	1754587607	CMakeFiles/rish.dir/main.cpp.o	5cff80c855a8a19c
+15	166	1754587607	CMakeFiles/rish_starter.dir/android.cpp.o	ec8f003331e137f4
+10	208	1754587607	CMakeFiles/rish_starter.dir/cgroup.cpp.o	8772e4bac3d5fce6
+16	223	1754587607	CMakeFiles/rish_starter.dir/helper.cpp.o	3bd952d8208ba2f
+4	298	1754587607	CMakeFiles/rish_starter.dir/selinux.cpp.o	aa30a23eee6236af
+4	323	1754587607	CMakeFiles/rish_starter.dir/misc.cpp.o	4551ad149db8b78e
+20	428	1754587607	CMakeFiles/rish.dir/pts.cpp.o	8bccf1d333b03ab9
+1	438	1754587607	CMakeFiles/rish_starter.dir/starter.cpp.o	3bbbf6ddd0d89817
+440	477	1754587607	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86_64/rish_starter	afd8fa061905b730
+26	647	1754587607	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	e67ce5e27a7857d4
+21	668	1754587607	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	4a9cde5b57ab955a
+668	715	1754587607	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86_64/librish.so	5e8a2398642ff60a
+0	5	0	clean	ac3775bcbd8eb20c
+22	126	1754587799	CMakeFiles/rish.dir/main.cpp.o	5cff80c855a8a19c
+14	140	1754587799	CMakeFiles/rish_starter.dir/cgroup.cpp.o	8772e4bac3d5fce6
+15	187	1754587799	CMakeFiles/rish_starter.dir/android.cpp.o	ec8f003331e137f4
+16	206	1754587799	CMakeFiles/rish_starter.dir/helper.cpp.o	3bd952d8208ba2f
+6	268	1754587800	CMakeFiles/rish_starter.dir/misc.cpp.o	4551ad149db8b78e
+9	283	1754587800	CMakeFiles/rish_starter.dir/selinux.cpp.o	aa30a23eee6236af
+27	621	1754587800	CMakeFiles/rish.dir/pts.cpp.o	8bccf1d333b03ab9
+5	723	1754587800	CMakeFiles/rish_starter.dir/starter.cpp.o	3bbbf6ddd0d89817
+41	836	1754587800	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	e67ce5e27a7857d4
+724	849	1754587800	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86_64/rish_starter	afd8fa061905b730
+34	888	1754587800	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	4a9cde5b57ab955a
+888	958	1754587800	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86_64/librish.so	5e8a2398642ff60a

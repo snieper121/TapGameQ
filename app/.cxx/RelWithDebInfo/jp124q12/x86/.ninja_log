@@ -1,0 +1,26 @@
+# ninja log v5
+13	104	1754587616	CMakeFiles/rish.dir/main.cpp.o	12a811c6f38b0cff
+7	176	1754587616	CMakeFiles/rish_starter.dir/cgroup.cpp.o	bb5753ebda8c58fe
+13	225	1754587616	CMakeFiles/rish_starter.dir/helper.cpp.o	bf5548241ff94cf
+12	282	1754587616	CMakeFiles/rish_starter.dir/android.cpp.o	b526f13c35a753af
+5	311	1754587616	CMakeFiles/rish_starter.dir/selinux.cpp.o	642146ba365f1a24
+0	368	1754587616	CMakeFiles/rish_starter.dir/misc.cpp.o	2edb03d209c794b0
+14	457	1754587616	CMakeFiles/rish.dir/pts.cpp.o	1b5cf7fb80bef45a
+18	790	1754587617	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	ded8ceced78fe129
+0	799	1754587617	CMakeFiles/rish_starter.dir/starter.cpp.o	65b219ceb2c47b3a
+800	863	1754587617	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/x86/rish_starter	174db479ca46972b
+25	908	1754587617	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	48efa269e0f856bb
+909	1008	1754587617	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/x86/librish.so	76fb20086298a103
+0	5	0	clean	ac3775bcbd8eb20c
+29	119	1754587810	CMakeFiles/rish.dir/main.cpp.o	12a811c6f38b0cff
+20	179	1754587810	CMakeFiles/rish_starter.dir/cgroup.cpp.o	bb5753ebda8c58fe
+21	219	1754587810	CMakeFiles/rish_starter.dir/android.cpp.o	b526f13c35a753af
+18	259	1754587810	CMakeFiles/rish_starter.dir/selinux.cpp.o	642146ba365f1a24
+14	282	1754587810	CMakeFiles/rish_starter.dir/misc.cpp.o	2edb03d209c794b0
+25	309	1754587810	CMakeFiles/rish_starter.dir/helper.cpp.o	bf5548241ff94cf
+33	686	1754587810	CMakeFiles/rish.dir/pts.cpp.o	1b5cf7fb80bef45a
+38	710	1754587810	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	48efa269e0f856bb
+6	876	1754587810	CMakeFiles/rish_starter.dir/starter.cpp.o	65b219ceb2c47b3a
+877	1077	1754587811	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/x86/rish_starter	174db479ca46972b
+38	1125	1754587811	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	ded8ceced78fe129
+1125	1260	1754587811	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/x86/librish.so	76fb20086298a103

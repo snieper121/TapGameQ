@@ -1,0 +1,4 @@
+/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a/CMakeFiles/rish_starter.dir
+/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a/CMakeFiles/rish.dir
+/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a/CMakeFiles/rebuild_cache.dir

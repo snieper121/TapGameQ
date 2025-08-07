@@ -1,0 +1,26 @@
+# ninja log v5
+16	138	1754587615	CMakeFiles/rish.dir/main.cpp.o	d6f7f237e4a0f207
+5	149	1754587615	CMakeFiles/rish_starter.dir/cgroup.cpp.o	3b1fe56c700a84a1
+14	210	1754587615	CMakeFiles/rish_starter.dir/helper.cpp.o	6b8ffffa4744bfae
+4	230	1754587615	CMakeFiles/rish_starter.dir/selinux.cpp.o	d21e04390d4b2380
+12	264	1754587615	CMakeFiles/rish_starter.dir/android.cpp.o	49498e0e53d22a2a
+1	281	1754587615	CMakeFiles/rish_starter.dir/misc.cpp.o	aaecef3b9a212a52
+19	472	1754587615	CMakeFiles/rish.dir/pts.cpp.o	7c9324ef72933df1
+0	610	1754587615	CMakeFiles/rish_starter.dir/starter.cpp.o	c43014b140ef1fad
+613	722	1754587615	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/armeabi-v7a/rish_starter	7c691e2db3b026da
+22	733	1754587615	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	f8ef81fcd7b88907
+28	767	1754587615	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	162521af299e9c94
+767	846	1754587615	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/armeabi-v7a/librish.so	6a856fb6a641dcc
+0	5	0	clean	ac3775bcbd8eb20c
+22	110	1754587809	CMakeFiles/rish.dir/main.cpp.o	d6f7f237e4a0f207
+8	168	1754587809	CMakeFiles/rish_starter.dir/cgroup.cpp.o	3b1fe56c700a84a1
+16	226	1754587809	CMakeFiles/rish_starter.dir/helper.cpp.o	6b8ffffa4744bfae
+14	260	1754587809	CMakeFiles/rish_starter.dir/android.cpp.o	49498e0e53d22a2a
+8	316	1754587809	CMakeFiles/rish_starter.dir/selinux.cpp.o	d21e04390d4b2380
+5	318	1754587809	CMakeFiles/rish_starter.dir/misc.cpp.o	aaecef3b9a212a52
+27	688	1754587809	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	162521af299e9c94
+25	761	1754587809	CMakeFiles/rish.dir/pts.cpp.o	7c9324ef72933df1
+26	780	1754587809	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	f8ef81fcd7b88907
+2	858	1754587809	CMakeFiles/rish_starter.dir/starter.cpp.o	c43014b140ef1fad
+781	880	1754587809	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/armeabi-v7a/librish.so	6a856fb6a641dcc
+859	942	1754587809	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/armeabi-v7a/rish_starter	7c691e2db3b026da

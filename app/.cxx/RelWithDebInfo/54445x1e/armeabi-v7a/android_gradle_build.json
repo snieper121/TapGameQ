@@ -1,0 +1,45 @@
+{
+  "buildFiles": [
+    "/home/user/TapGameQ/app/rish/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/home/user/TapGameQ/app/.cxx/RelWithDebInfo/54445x1e/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "rish::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "rish",
+      "output": "/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/54445x1e/obj/armeabi-v7a/librish.so",
+      "runtimeFiles": []
+    },
+    "rish_starter::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "rish_starter",
+      "output": "/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/54445x1e/obj/armeabi-v7a/rish_starter",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

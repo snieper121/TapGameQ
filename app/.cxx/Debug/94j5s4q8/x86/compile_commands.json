@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/starter.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/starter.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/starter.cpp",
+  "output": "CMakeFiles/rish_starter.dir/starter.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/misc.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/misc.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/misc.cpp",
+  "output": "CMakeFiles/rish_starter.dir/misc.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/selinux.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/selinux.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/selinux.cpp",
+  "output": "CMakeFiles/rish_starter.dir/selinux.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/cgroup.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/cgroup.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/cgroup.cpp",
+  "output": "CMakeFiles/rish_starter.dir/cgroup.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/android.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/android.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/android.cpp",
+  "output": "CMakeFiles/rish_starter.dir/android.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIE -o CMakeFiles/rish_starter.dir/helper.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/helper.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/helper.cpp",
+  "output": "CMakeFiles/rish_starter.dir/helper.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -Drish_EXPORTS -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIC -o CMakeFiles/rish.dir/main.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/main.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/main.cpp",
+  "output": "CMakeFiles/rish.dir/main.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -Drish_EXPORTS -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIC -o CMakeFiles/rish.dir/pts.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/pts.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/pts.cpp",
+  "output": "CMakeFiles/rish.dir/pts.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -Drish_EXPORTS -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIC -o CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/rikka_rish_RishTerminal.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/rikka_rish_RishTerminal.cpp",
+  "output": "CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o"
+},
+{
+  "directory": "/home/user/TapGameQ/app/.cxx/Debug/94j5s4q8/x86",
+  "command": "/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android31 --sysroot=/nix/store/sdry1w45ghp2qp6qzr6i90nzs505wnaj-androidsdk/libexec/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DDEBUG -Drish_EXPORTS -I/home/user/TapGameQ/app/rish/src/main/cpp/. -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Werror=format -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -g  -fno-limit-debug-info -std=gnu++17 -fPIC -o CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o -c /home/user/TapGameQ/app/rish/src/main/cpp/rikka_rish_RishHost.cpp",
+  "file": "/home/user/TapGameQ/app/rish/src/main/cpp/rikka_rish_RishHost.cpp",
+  "output": "CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o"
+}
+]

@@ -6,7 +6,11 @@ android {
     namespace 'rikka.shizuku.starter'
     compileSdk 34
     buildFeatures {
-	    buildConfig = false
+        buildConfig = false
+    }
+    defaultConfig {
+        minSdkVersion 5
+        targetSdkVersion 34
     }
 
     compileOptions {

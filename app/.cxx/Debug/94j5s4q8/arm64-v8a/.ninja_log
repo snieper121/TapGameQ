@@ -1,0 +1,26 @@
+# ninja log v5
+16	93	1754587603	CMakeFiles/rish.dir/main.cpp.o	9f5c3725e9760645
+11	116	1754587603	CMakeFiles/rish_starter.dir/cgroup.cpp.o	4c2fab0c5e1fde1
+15	146	1754587603	CMakeFiles/rish_starter.dir/helper.cpp.o	3fbf1ff0236c71b3
+12	191	1754587603	CMakeFiles/rish_starter.dir/android.cpp.o	f6b06a23918e92c5
+3	195	1754587603	CMakeFiles/rish_starter.dir/misc.cpp.o	92eabc92f705dd9e
+6	213	1754587603	CMakeFiles/rish_starter.dir/selinux.cpp.o	84c7e38851fbdfd6
+18	522	1754587603	CMakeFiles/rish.dir/pts.cpp.o	8413d0a4174c008b
+20	562	1754587603	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	ac60c8c6ef283585
+0	615	1754587603	CMakeFiles/rish_starter.dir/starter.cpp.o	2f76d4c99aacc6ea
+615	692	1754587603	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/arm64-v8a/rish_starter	eaa90f0b3b19076f
+24	771	1754587604	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	bcadf4b2a46dacf5
+771	871	1754587604	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/arm64-v8a/librish.so	bcfb6ca4b5d01bed
+0	5	0	clean	ac3775bcbd8eb20c
+17	121	1754587797	CMakeFiles/rish.dir/main.cpp.o	9f5c3725e9760645
+13	127	1754587797	CMakeFiles/rish_starter.dir/cgroup.cpp.o	4c2fab0c5e1fde1
+16	172	1754587797	CMakeFiles/rish_starter.dir/helper.cpp.o	3fbf1ff0236c71b3
+14	247	1754587797	CMakeFiles/rish_starter.dir/android.cpp.o	f6b06a23918e92c5
+12	256	1754587797	CMakeFiles/rish_starter.dir/selinux.cpp.o	84c7e38851fbdfd6
+9	320	1754587797	CMakeFiles/rish_starter.dir/misc.cpp.o	92eabc92f705dd9e
+23	410	1754587797	CMakeFiles/rish.dir/pts.cpp.o	8413d0a4174c008b
+3	678	1754587797	CMakeFiles/rish_starter.dir/starter.cpp.o	2f76d4c99aacc6ea
+33	720	1754587798	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	ac60c8c6ef283585
+35	735	1754587798	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	bcadf4b2a46dacf5
+735	796	1754587798	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/arm64-v8a/librish.so	bcfb6ca4b5d01bed
+678	800	1754587798	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/arm64-v8a/rish_starter	eaa90f0b3b19076f

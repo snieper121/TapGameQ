@@ -1,0 +1,1 @@
+/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/424b6l1t/obj/arm64-v8a

@@ -50,3 +50,16 @@
 412	443	1754584272	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/x86_64/rish_starter	99778ac0e281ed0
 11	473	1754584272	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	f77342d203ddcb5
 473	516	1754584272	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/x86_64/librish.so	d930115e31141714
+0	4	0	clean	ac3775bcbd8eb20c
+18	104	1754586906	CMakeFiles/rish.dir/main.cpp.o	4ec3e70631c10c4e
+15	153	1754586906	CMakeFiles/rish_starter.dir/cgroup.cpp.o	56e8380830e99dee
+15	207	1754586906	CMakeFiles/rish_starter.dir/helper.cpp.o	ea178e9c85780785
+15	239	1754586906	CMakeFiles/rish_starter.dir/android.cpp.o	e2d4705f030b5303
+12	248	1754586906	CMakeFiles/rish_starter.dir/selinux.cpp.o	ec5fb0c4bbaaac91
+9	253	1754586906	CMakeFiles/rish_starter.dir/misc.cpp.o	85ecb16aa6fb7820
+22	691	1754586907	CMakeFiles/rish.dir/pts.cpp.o	94c8f9313de9bc12
+8	767	1754586907	CMakeFiles/rish_starter.dir/starter.cpp.o	16cb52b2a6ff42f2
+34	895	1754586907	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	7ab60f5a8e60d66e
+767	911	1754586907	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/x86_64/rish_starter	99778ac0e281ed0
+28	930	1754586907	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	f77342d203ddcb5
+930	979	1754586907	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/61446860/obj/x86_64/librish.so	d930115e31141714

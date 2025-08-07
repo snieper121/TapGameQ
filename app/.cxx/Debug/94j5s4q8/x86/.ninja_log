@@ -1,0 +1,26 @@
+# ninja log v5
+9	83	1754587606	CMakeFiles/rish.dir/main.cpp.o	47b1038bee72ed54
+5	107	1754587606	CMakeFiles/rish_starter.dir/android.cpp.o	5caa1a42174993b3
+4	113	1754587606	CMakeFiles/rish_starter.dir/cgroup.cpp.o	e4e32d3ed132ad02
+7	116	1754587606	CMakeFiles/rish_starter.dir/helper.cpp.o	9659d1b2d404f4e8
+1	154	1754587606	CMakeFiles/rish_starter.dir/selinux.cpp.o	2714fc91e75a6389
+1	209	1754587606	CMakeFiles/rish_starter.dir/misc.cpp.o	23eacb376894088b
+0	434	1754587606	CMakeFiles/rish_starter.dir/starter.cpp.o	79999595baedfbba
+11	443	1754587606	CMakeFiles/rish.dir/pts.cpp.o	b4620f1d19c62ec9
+435	499	1754587606	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86/rish_starter	a54b8c00e9b2ab0e
+15	539	1754587606	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	2097b87490c8cfa5
+14	549	1754587606	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	cc1216091c5f2158
+549	586	1754587606	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86/librish.so	6b2283292caeae01
+0	5	0	clean	ac3775bcbd8eb20c
+17	104	1754587799	CMakeFiles/rish.dir/main.cpp.o	47b1038bee72ed54
+15	194	1754587799	CMakeFiles/rish_starter.dir/helper.cpp.o	9659d1b2d404f4e8
+10	197	1754587799	CMakeFiles/rish_starter.dir/cgroup.cpp.o	e4e32d3ed132ad02
+15	214	1754587799	CMakeFiles/rish_starter.dir/android.cpp.o	5caa1a42174993b3
+10	280	1754587799	CMakeFiles/rish_starter.dir/selinux.cpp.o	2714fc91e75a6389
+8	282	1754587799	CMakeFiles/rish_starter.dir/misc.cpp.o	23eacb376894088b
+18	529	1754587799	CMakeFiles/rish.dir/pts.cpp.o	b4620f1d19c62ec9
+4	583	1754587799	CMakeFiles/rish_starter.dir/starter.cpp.o	79999595baedfbba
+30	623	1754587799	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	2097b87490c8cfa5
+584	734	1754587799	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86/rish_starter	a54b8c00e9b2ab0e
+22	757	1754587799	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	cc1216091c5f2158
+758	847	1754587799	/home/user/TapGameQ/app/build/intermediates/cxx/Debug/94j5s4q8/obj/x86/librish.so	6b2283292caeae01

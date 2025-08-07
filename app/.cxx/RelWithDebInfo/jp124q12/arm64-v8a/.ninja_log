@@ -1,0 +1,26 @@
+# ninja log v5
+22	137	1754587612	CMakeFiles/rish.dir/main.cpp.o	f37a9d113af7acb5
+15	172	1754587612	CMakeFiles/rish_starter.dir/helper.cpp.o	899348613b1cbc5a
+12	175	1754587612	CMakeFiles/rish_starter.dir/cgroup.cpp.o	f1aa5ad45114347b
+13	310	1754587613	CMakeFiles/rish_starter.dir/android.cpp.o	107ea2257410cdd4
+9	387	1754587613	CMakeFiles/rish_starter.dir/selinux.cpp.o	b8d22e844fc02fb7
+3	457	1754587613	CMakeFiles/rish_starter.dir/misc.cpp.o	7c08335afc35d9b1
+33	672	1754587613	CMakeFiles/rish.dir/pts.cpp.o	55f82feab10cbcab
+0	864	1754587613	CMakeFiles/rish_starter.dir/starter.cpp.o	f9d1adac91d7b35a
+38	878	1754587613	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	cd0a98ee35acd794
+864	986	1754587613	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/arm64-v8a/rish_starter	f1fb304e48c94b90
+41	1242	1754587614	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	2bb4d77d45f46e77
+1243	1386	1754587614	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/arm64-v8a/librish.so	bc6069765386c8d0
+0	5	0	clean	ac3775bcbd8eb20c
+17	120	1754587808	CMakeFiles/rish.dir/main.cpp.o	f37a9d113af7acb5
+11	180	1754587808	CMakeFiles/rish_starter.dir/cgroup.cpp.o	f1aa5ad45114347b
+14	232	1754587808	CMakeFiles/rish_starter.dir/helper.cpp.o	899348613b1cbc5a
+11	260	1754587808	CMakeFiles/rish_starter.dir/selinux.cpp.o	b8d22e844fc02fb7
+13	299	1754587808	CMakeFiles/rish_starter.dir/android.cpp.o	107ea2257410cdd4
+9	380	1754587808	CMakeFiles/rish_starter.dir/misc.cpp.o	7c08335afc35d9b1
+17	513	1754587808	CMakeFiles/rish.dir/pts.cpp.o	55f82feab10cbcab
+25	930	1754587808	CMakeFiles/rish.dir/rikka_rish_RishTerminal.cpp.o	cd0a98ee35acd794
+3	949	1754587808	CMakeFiles/rish_starter.dir/starter.cpp.o	f9d1adac91d7b35a
+26	1015	1754587808	CMakeFiles/rish.dir/rikka_rish_RishHost.cpp.o	2bb4d77d45f46e77
+1015	1075	1754587808	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/arm64-v8a/librish.so	bc6069765386c8d0
+949	1081	1754587808	/home/user/TapGameQ/app/build/intermediates/cxx/RelWithDebInfo/jp124q12/obj/arm64-v8a/rish_starter	f1fb304e48c94b90
