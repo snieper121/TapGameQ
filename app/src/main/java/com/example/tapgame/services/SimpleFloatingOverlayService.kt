@@ -176,10 +176,10 @@ class SimpleFloatingOverlayService : Service() {
             val density = LocalDensity.current
             OverlayMenu(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .width(with(density) { overlayWidth.toDp() }),
-                iconSize = 32.dp, // уменьшенный размер иконок
-                iconSpacing = 4.dp, // уменьшенное расстояние между иконками
+                    .width(with(density) { overlayWidth.toDp() })
+                    .height(30.dp), // фиксированная минимальная высота
+                iconSize = 20.dp, // маленькие иконки
+                iconSpacing = 4.dp,
                 onProfileEditorClick = { performAction1() },
                 onButtonEditorClick = { performAction2() },
                 onSettingsClick = { performAction3() },
@@ -187,7 +187,6 @@ class SimpleFloatingOverlayService : Service() {
                 onReturnClick = { performAction5() }
             )
         }
-
          // Создаем и назначаем фиктивный LifecycleOwner
         val lifecycleOwner = object : LifecycleOwner {
             private val lifecycleRegistry = LifecycleRegistry(this)
@@ -201,9 +200,11 @@ class SimpleFloatingOverlayService : Service() {
 
         overlayMenuView = composeView
 
+        val menuHeight = (30 * resources.displayMetrics.density).toInt() // 30dp в px
+
         val menuParams = WindowManager.LayoutParams(
             overlayWidth,
-            WindowManager.LayoutParams.WRAP_CONTENT,
+            menuHeight, // фиксированная минимальная высота
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
@@ -215,7 +216,7 @@ class SimpleFloatingOverlayService : Service() {
         windowManager.addView(overlayMenuView, menuParams)
         isMenuExpanded = true
     }
-
+    
     private fun closeOverlay() {
         try {
             if (isMenuExpanded) {
@@ -326,7 +327,7 @@ class SimpleFloatingOverlayService : Service() {
 @Composable
 private fun OverlayMenu(
     modifier: Modifier = Modifier,
-    iconSize: Dp = 32.dp,
+    iconSize: Dp = 20.dp,
     iconSpacing: Dp = 4.dp,
     onProfileEditorClick: () -> Unit,
     onButtonEditorClick: () -> Unit,
@@ -336,38 +337,37 @@ private fun OverlayMenu(
 ) {
     Row(
         modifier = modifier
-            .background(Color(0xFF1976D2))
-            .padding(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(iconSpacing, Alignment.CenterHorizontally),
+            .background(Color(0xFF1976D2)),
+        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
             icon = android.R.drawable.ic_menu_save,
-            text = "Редактор профиля",
+            text = "",
             onClick = onProfileEditorClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_edit,
-            text = "Редактор кнопок",
+            text = "",
             onClick = onButtonEditorClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_manage,
-            text = "Настройки",
+            text = "",
             onClick = onSettingsClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_close_clear_cancel,
-            text = "Закрыть наложение",
+            text = "",
             onClick = onCloseOverlayClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_revert,
-            text = "Вернуться",
+            text = "",
             onClick = onReturnClick,
             iconSize = iconSize
         )
@@ -378,32 +378,20 @@ private fun IconButton(
     icon: Int,
     text: String,
     onClick: () -> Unit,
-    iconSize: Dp = 32.dp
+    iconSize: Dp = 20.dp
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(2.dp)
+    androidx.compose.material3.IconButton(
+        onClick = onClick,
+        modifier = Modifier
+            .size(iconSize + 8.dp) // кнопка чуть больше иконки
+            .clip(CircleShape)
+            .background(Color(0xFF1565C0))
     ) {
-        androidx.compose.material3.IconButton(
-            onClick = onClick,
-            modifier = Modifier
-                .size(iconSize + 16.dp) // кнопка чуть больше иконки
-                .clip(CircleShape)
-                .background(Color(0xFF1565C0))
-        ) {
-            Icon(
-                painter = painterResource(id = icon),
-                contentDescription = text,
-                tint = Color.White,
-                modifier = Modifier.size(iconSize)
-            )
-        }
-        Text(
-            text = text,
-            color = Color.White,
-            fontSize = 10.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(top = 2.dp)
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = text,
+            tint = Color.White,
+            modifier = Modifier.size(iconSize)
         )
     }
 }
