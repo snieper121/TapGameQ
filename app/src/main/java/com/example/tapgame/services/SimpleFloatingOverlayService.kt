@@ -36,6 +36,7 @@ import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryOwner
+import androidx.savedstate.SavedStateRegistryController
 
 class SimpleFloatingOverlayService : Service() {
     
@@ -151,12 +152,12 @@ class SimpleFloatingOverlayService : Service() {
 
         // Создаем ComposeView
         val composeView = ComposeView(this)
-        // Создаем и назначаем фиктивный SavedStateRegistryOwner
+        
         val savedStateRegistryOwner = object : SavedStateRegistryOwner {
             private val lifecycleRegistry = LifecycleRegistry(this)
-            // Изменяем эту строку
-            override val savedStateRegistry: SavedStateRegistry = SavedStateRegistryOwner.create() // Попробуем получить через owner
-
+            private val controller = SavedStateRegistryController.create(this)
+            override val savedStateRegistry: SavedStateRegistry
+                get() = controller.savedStateRegistry
             override val lifecycle: Lifecycle
                 get() = lifecycleRegistry
         }
