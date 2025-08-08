@@ -4,10 +4,10 @@ plugins {
 
 android {
     namespace 'rikka.shizuku.server'
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         minSdkVersion 31
-        targetSdkVersion 34
+        targetSdkVersion 35
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

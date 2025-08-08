@@ -1,0 +1,370 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:206 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The target system is: Android - 1 - x86_64
+      The host system is: Linux - 6.6.93+ - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-Wformat;-Werror=format-security
+      Id flags: -c;--target=x86_64-none-linux-android31 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is Clang, found in:
+        /home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/3.27.7/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-Wformat;-Werror=format-security
+      Id flags: -c;--target=x86_64-none-linux-android31 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is Clang, found in:
+        /home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/3.27.7/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3"
+      binary: "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3"
+    cmakeVariables:
+      ANDROID_ABI: "x86_64"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-31"
+      ANDROID_STL: "c++_static"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "x86_64-none-linux-android31"
+      CMAKE_C_COMPILER_TARGET: "x86_64-none-linux-android31"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat "
+      CMAKE_C_FLAGS_DEBUG: "-fno-limit-debug-info "
+      CMAKE_EXE_LINKER_FLAGS: "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3'
+        
+        Run Build Command(s): /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja -v cmTC_6ed52
+        [1/2] /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCCompilerABI.c
+        Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)
+        Target: x86_64-none-linux-android31
+        Thread model: posix
+        InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin
+         (in-process)
+         "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang" -cc1 -triple x86_64-none-linux-android31 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3 -resource-dir /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17 -dependency-file CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -fdebug-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3 -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -x c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+        End of search list.
+        [2/2] : && /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -o cmTC_6ed52   && :
+        Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)
+        Target: x86_64-none-linux-android31
+        Thread model: posix
+        InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin
+         "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld" --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z now -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_6ed52 /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        implicit include dirs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3']
+        ignore line: []
+        ignore line: [Run Build Command(s): /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja -v cmTC_6ed52]
+        ignore line: [[1/2] /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCCompilerABI.c]
+        ignore line: [Android (10552028  +pgo  +bolt  +lto  -mlgo  based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)]
+        ignore line: [Target: x86_64-none-linux-android31]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang" -cc1 -triple x86_64-none-linux-android31 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3 -resource-dir /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17 -dependency-file CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -fdebug-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-cLIia3 -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -x c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target x86_64-unknown-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -static-libstdc++ -Wl --build-id=sha1 -Wl --no-undefined-version -Wl --fatal-warnings -Wl --no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o -o cmTC_6ed52   && :]
+        ignore line: [Android (10552028  +pgo  +bolt  +lto  -mlgo  based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)]
+        ignore line: [Target: x86_64-none-linux-android31]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin]
+        link line: [ "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld" --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z now -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_6ed52 /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker64] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_6ed52] ==> ignore
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o] ==> obj [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_6ed52.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o] ==> obj [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+        remove lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+        remove lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+        implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+        implicit dirs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb"
+      binary: "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb"
+    cmakeVariables:
+      ANDROID_ABI: "x86_64"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-31"
+      ANDROID_STL: "c++_static"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_TARGET: "x86_64-none-linux-android31"
+      CMAKE_CXX_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat  "
+      CMAKE_CXX_FLAGS_DEBUG: "-fno-limit-debug-info "
+      CMAKE_C_COMPILER_TARGET: "x86_64-none-linux-android31"
+      CMAKE_EXE_LINKER_FLAGS: "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb'
+        
+        Run Build Command(s): /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja -v cmTC_47ed0
+        [1/2] /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat    -fPIE   -v -MD -MT CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp
+        Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)
+        Target: x86_64-none-linux-android31
+        Thread model: posix
+        InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin
+         (in-process)
+         "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++" -cc1 -triple x86_64-none-linux-android31 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb -resource-dir /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17 -dependency-file CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1 -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -fdeprecated-macro -fdebug-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -x c++ /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android
+         /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
+        End of search list.
+        [2/2] : && /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_47ed0   && :
+        Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)
+        Target: x86_64-none-linux-android31
+        Thread model: posix
+        InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin
+         "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld" --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z now -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_47ed0 /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+          add: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+        collapse include dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        implicit include dirs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb']
+        ignore line: []
+        ignore line: [Run Build Command(s): /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja -v cmTC_47ed0]
+        ignore line: [[1/2] /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat    -fPIE   -v -MD -MT CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -c /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Android (10552028  +pgo  +bolt  +lto  -mlgo  based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)]
+        ignore line: [Target: x86_64-none-linux-android31]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++" -cc1 -triple x86_64-none-linux-android31 -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -target-feature +sse4.2 -target-feature +popcnt -target-feature +cx16 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb -resource-dir /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17 -dependency-file CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1 -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include -internal-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include -internal-externc-isystem /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -Wformat -fdeprecated-macro -fdebug-compilation-dir=/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86_64/CMakeFiles/CMakeScratch/TryCompile-xuLINb -ferror-limit 19 -stack-protector 2 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -x c++ /nix/store/4sq3k31k0l4axjlnmfgxqgyzhhi0lyvz-cmake-3.27.7/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 17.0.2 based upon LLVM 17.0.2 default target x86_64-unknown-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/c++/v1]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/include]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include/x86_64-linux-android]
+        ignore line: [ /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=x86_64-none-linux-android31 --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -static-libstdc++ -Wl --build-id=sha1 -Wl --no-undefined-version -Wl --fatal-warnings -Wl --no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_47ed0   && :]
+        ignore line: [Android (10552028  +pgo  +bolt  +lto  -mlgo  based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)]
+        ignore line: [Target: x86_64-none-linux-android31]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin]
+        link line: [ "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld" --sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z now -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /system/bin/linker64 -o cmTC_47ed0 /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31 -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android -L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --build-id=sha1 --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl -lc /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a -l:libunwind.a -ldl /nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker64] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_47ed0] ==> ignore
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o] ==> obj [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+          arg [-L/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_47ed0.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-Bstatic] ==> search static
+          arg [-lc++] ==> lib [c++]
+          arg [-Bdynamic] ==> search dynamic
+          arg [-lm] ==> lib [m]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a] ==> lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o] ==> obj [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+        remove lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+        remove lib [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/libclang_rt.builtins-x86_64-android.a]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android]
+        collapse library dir [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib] ==> [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+        implicit libs: [c++;m;-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtbegin_dynamic.o;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31/crtend_android.o]
+        implicit dirs: [/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/17/lib/linux/x86_64;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/31;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android;/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+...

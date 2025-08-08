@@ -1,0 +1,45 @@
+{
+  "buildFiles": [
+    "/home/user/TapGameQ/app/rish/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/user/TapGameQ/app/.cxx/Debug/2s5p2o54/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "rish::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rish",
+      "output": "/home/user/TapGameQ/app/build/intermediates/cxx/Debug/2s5p2o54/obj/x86/librish.so",
+      "runtimeFiles": []
+    },
+    "rish_starter::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rish_starter",
+      "output": "/home/user/TapGameQ/app/build/intermediates/cxx/Debug/2s5p2o54/obj/x86/rish_starter",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/nix/store/v0afm6r1cspmwjg8s5siwg64l32r915r-androidsdk/libexec/android-sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

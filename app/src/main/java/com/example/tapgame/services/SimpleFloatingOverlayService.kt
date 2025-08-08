@@ -343,31 +343,31 @@ private fun OverlayMenu(
     ) {
         IconButton(
             icon = android.R.drawable.ic_menu_save,
-            text = "",
+            text = "Профиль",
             onClick = onProfileEditorClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_edit,
-            text = "",
+            text = "+ Кнопки",
             onClick = onButtonEditorClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_manage,
-            text = "",
+            text = "Настройки",
             onClick = onSettingsClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_close_clear_cancel,
-            text = "",
+            text = "Выйти",
             onClick = onCloseOverlayClick,
             iconSize = iconSize
         )
         IconButton(
             icon = android.R.drawable.ic_menu_revert,
-            text = "",
+            text = "Вернуться",
             onClick = onReturnClick,
             iconSize = iconSize
         )

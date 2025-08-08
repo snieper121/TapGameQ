@@ -4,13 +4,13 @@ plugins {
 
 android {
     namespace 'rikka.shizuku.starter'
-    compileSdk 34
+    compileSdk 35
     buildFeatures {
         buildConfig = false
     }
     defaultConfig {
         minSdkVersion 5
-        targetSdkVersion 34
+        targetSdkVersion 35
     }
 
     compileOptions {
