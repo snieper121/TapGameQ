@@ -23,8 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.content.res.Configuration
@@ -145,10 +147,7 @@ class SimpleFloatingOverlayService : Service() {
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val screenWidth = displayMetrics.widthPixels
-        val overlayWidth = when (orientation) {
-            Configuration.ORIENTATION_LANDSCAPE -> (screenWidth * 0.4).toInt()
-            else -> (screenWidth * 0.6).toInt()
-        }
+        val overlayWidth = (screenWidth * 0.5).toInt() // 50% ширины экрана
 
         // Создаем ComposeView
         val composeView = ComposeView(this)
@@ -160,12 +159,27 @@ class SimpleFloatingOverlayService : Service() {
                 get() = controller.savedStateRegistry
             override val lifecycle: Lifecycle
                 get() = lifecycleRegistry
+
+            init {
+                lifecycleRegistry.currentState = Lifecycle.State.INITIALIZED
+                controller.performAttach()
+                controller.performRestore(null)
+                lifecycleRegistry.currentState = Lifecycle.State.CREATED
+                lifecycleRegistry.currentState = Lifecycle.State.STARTED
+                lifecycleRegistry.currentState = Lifecycle.State.RESUMED
+            }
         }
 
         composeView.setViewTreeSavedStateRegistryOwner(savedStateRegistryOwner)
 
         composeView.setContent {
+            val density = LocalDensity.current
             OverlayMenu(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .width(with(density) { overlayWidth.toDp() }),
+                iconSize = 32.dp, // уменьшенный размер иконок
+                iconSpacing = 4.dp, // уменьшенное расстояние между иконками
                 onProfileEditorClick = { performAction1() },
                 onButtonEditorClick = { performAction2() },
                 onSettingsClick = { performAction3() },
@@ -311,6 +325,9 @@ class SimpleFloatingOverlayService : Service() {
 
 @Composable
 private fun OverlayMenu(
+    modifier: Modifier = Modifier,
+    iconSize: Dp = 32.dp,
+    iconSpacing: Dp = 4.dp,
     onProfileEditorClick: () -> Unit,
     onButtonEditorClick: () -> Unit,
     onSettingsClick: () -> Unit,
@@ -318,81 +335,75 @@ private fun OverlayMenu(
     onReturnClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color(0xFF1976D2)) // Синий фон как на изображении
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly,
+        modifier = modifier
+            .background(Color(0xFF1976D2))
+            .padding(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(iconSpacing, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Редактор профиля
         IconButton(
-            icon = android.R.drawable.ic_menu_save, // Иконка сохранения
+            icon = android.R.drawable.ic_menu_save,
             text = "Редактор профиля",
-            onClick = onProfileEditorClick
+            onClick = onProfileEditorClick,
+            iconSize = iconSize
         )
-        
-        // Редактор кнопок
         IconButton(
-            icon = android.R.drawable.ic_menu_edit, // Иконка редактирования
+            icon = android.R.drawable.ic_menu_edit,
             text = "Редактор кнопок",
-            onClick = onButtonEditorClick
+            onClick = onButtonEditorClick,
+            iconSize = iconSize
         )
-        
-        // Настройки
         IconButton(
-            icon = android.R.drawable.ic_menu_manage, // Иконка настроек
+            icon = android.R.drawable.ic_menu_manage,
             text = "Настройки",
-            onClick = onSettingsClick
+            onClick = onSettingsClick,
+            iconSize = iconSize
         )
-        
-        // Закрыть наложение
         IconButton(
-            icon = android.R.drawable.ic_menu_close_clear_cancel, // Иконка закрытия
+            icon = android.R.drawable.ic_menu_close_clear_cancel,
             text = "Закрыть наложение",
-            onClick = onCloseOverlayClick
+            onClick = onCloseOverlayClick,
+            iconSize = iconSize
         )
-        
-        // Вернуться
         IconButton(
-            icon = android.R.drawable.ic_menu_revert, // Иконка возврата
+            icon = android.R.drawable.ic_menu_revert,
             text = "Вернуться",
-            onClick = onReturnClick
+            onClick = onReturnClick,
+            iconSize = iconSize
         )
     }
 }
-
 @Composable
 private fun IconButton(
     icon: Int,
     text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    iconSize: Dp = 32.dp
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(2.dp)
     ) {
         androidx.compose.material3.IconButton(
             onClick = onClick,
             modifier = Modifier
-                .size(48.dp)
+                .size(iconSize + 16.dp) // кнопка чуть больше иконки
                 .clip(CircleShape)
-                .background(Color(0xFF1565C0)) // Темно-синий для иконок
+                .background(Color(0xFF1565C0))
         ) {
             Icon(
                 painter = painterResource(id = icon),
                 contentDescription = text,
                 tint = Color.White,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(iconSize)
             )
         }
-        
         Text(
             text = text,
             color = Color.White,
-            fontSize = 12.sp,
+            fontSize = 10.sp,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(top = 4.dp)
+            modifier = Modifier.padding(top = 2.dp)
         )
     }
 }
