@@ -32,6 +32,10 @@ import android.util.DisplayMetrics
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.setViewTreeLifecycleOwner
+import androidx.savedstate.setViewTreeSavedStateRegistryOwner
+import androidx.savedstate.SavedStateRegistry
+import androidx.savedstate.SavedStateRegistryOwner
 
 class SimpleFloatingOverlayService : Service() {
     
@@ -147,6 +151,18 @@ class SimpleFloatingOverlayService : Service() {
 
         // Создаем ComposeView
         val composeView = ComposeView(this)
+        // Создаем и назначаем фиктивный SavedStateRegistryOwner
+        val savedStateRegistryOwner = object : SavedStateRegistryOwner {
+            private val lifecycleRegistry = LifecycleRegistry(this)
+            // Изменяем эту строку
+            override val savedStateRegistry: SavedStateRegistry = SavedStateRegistryOwner.create() // Попробуем получить через owner
+
+            override val lifecycle: Lifecycle
+                get() = lifecycleRegistry
+        }
+
+        composeView.setViewTreeSavedStateRegistryOwner(savedStateRegistryOwner)
+
         composeView.setContent {
             OverlayMenu(
                 onProfileEditorClick = { performAction1() },
@@ -166,7 +182,7 @@ class SimpleFloatingOverlayService : Service() {
                 lifecycleRegistry.currentState = Lifecycle.State.RESUMED
             }
         }
-        ViewTreeLifecycleOwner.set(composeView, lifecycleOwner)
+        composeView.setViewTreeLifecycleOwner(lifecycleOwner)
 
         overlayMenuView = composeView
 

@@ -68,49 +68,53 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
 
 dependencies {
 
-    def room_version = "2.6.1" // Keep this version as it's already defined and likely used for Room database
+    def room_version = "2.6.1"
 
     implementation platform('androidx.compose:compose-bom:2024.06.00')
-    implementation platform('org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1')
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.20'
+    implementation platform('org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1') // Проверьте последнюю версию этого BOM
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core' // Без версии
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android' // Без версии
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.24' // Обновлено
     implementation 'org.bouncycastle:bcpkix-jdk15on:1.70'
     implementation 'org.conscrypt:conscrypt-android:2.5.2'
-    
+
     implementation "io.coil-kt:coil-compose:2.7.0"
-    
+
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation "androidx.compose.ui:ui"
     implementation "androidx.compose.ui:ui-graphics"
     implementation "androidx.compose.material3:material3"
     implementation 'androidx.compose.runtime:runtime'
-    implementation "androidx.compose.runtime:runtime-livedata:1.6.0"
+    implementation "androidx.compose.runtime:runtime-livedata" // Без версии
     implementation("androidx.compose.material:material-icons-extended")
-    
+
     implementation 'androidx.navigation:navigation-compose:2.7.7'
-    
-    implementation "androidx.activity:activity-compose:1.9.0" // Update to a compatible version with Compose BOM 2024.06.00
+
+    implementation "androidx.activity:activity-compose:1.9.0"
     implementation "androidx.datastore:datastore-preferences:1.1.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.7.0" // Update to match lifecycle-runtime-ktx
-    //implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2"
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0" // Добавлено в блок dependencies
-    implementation "androidx.lifecycle:lifecycle-runtime:2.6.2"
+
+    implementation "androidx.lifecycle:lifecycle-runtime-compose" // Без версии
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx" // Без версии
+    implementation "androidx.savedstate:savedstate-ktx:1.2.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose" // Без версии
+    implementation "androidx.lifecycle:lifecycle-runtime" // Без версии
+
     implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    
+    implementation 'androidx.appcompat:appcompat:1.7.0' // Обновлено
+
     implementation "androidx.paging:paging-compose:3.3.0"
-    implementation "androidx.room:room-ktx:2.6.1"
+    implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    
+
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    
+
     // Shizuku dependencies
     implementation "androidx.annotation:annotation:1.3.0"
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1' // Обновлено
     api 'dev.rikka.rikkax.parcelablelist:parcelablelist:2.0.0'
 
     implementation project(':app:aidl')
@@ -125,7 +129,9 @@ dependencies {
 
 configurations.all {
     resolutionStrategy {
-        force 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+        // Удалить эту строку, если полностью полагаемся на BOM для lifecycle
+        // force 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
     }
 }
+
 
