@@ -15,6 +15,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -174,11 +175,41 @@ fun DeveloperOptionsScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text("Параметры разработчика") },
-                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Назад") } }
-            )
-        }
+            Surface(
+                modifier = Modifier
+                    .padding(horizontal = 8.dp)
+                    .padding(top = 2.dp)
+                    .height(56.dp),
+                shape = RoundedCornerShape(8.dp),
+                color = MaterialTheme.colorScheme.surface
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Кнопка назад
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.Default.ArrowBack, "Назад")
+                    }
+                    
+                    // Заголовок по центру
+                    Box(
+                        modifier = Modifier.weight(1f),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Параметры Разработчика",
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+                    
+                    // Пустое место справа для симметрии
+                    Spacer(modifier = Modifier.width(48.dp)) // размер IconButton
+                }
+            }
+        },
     ) { padding ->
         Column(
             modifier = Modifier

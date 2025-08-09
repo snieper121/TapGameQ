@@ -177,8 +177,8 @@ class SimpleFloatingOverlayService : Service() {
             OverlayMenu(
                 modifier = Modifier
                     .width(with(density) { overlayWidth.toDp() })
-                    .height(30.dp), // фиксированная минимальная высота
-                iconSize = 20.dp, // маленькие иконки
+                    .height(50.dp), // увеличил с 30 до 50 dp для размещения текста
+                iconSize = 20.dp,
                 iconSpacing = 4.dp,
                 onProfileEditorClick = { performAction1() },
                 onButtonEditorClick = { performAction2() },
@@ -200,7 +200,7 @@ class SimpleFloatingOverlayService : Service() {
 
         overlayMenuView = composeView
 
-        val menuHeight = (30 * resources.displayMetrics.density).toInt() // 30dp в px
+        val menuHeight = (50 * resources.displayMetrics.density).toInt() // 30dp в px
 
         val menuParams = WindowManager.LayoutParams(
             overlayWidth,
@@ -380,18 +380,31 @@ private fun IconButton(
     onClick: () -> Unit,
     iconSize: Dp = 20.dp
 ) {
-    androidx.compose.material3.IconButton(
-        onClick = onClick,
-        modifier = Modifier
-            .size(iconSize + 8.dp) // кнопка чуть больше иконки
-            .clip(CircleShape)
-            .background(Color(0xFF1565C0))
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(2.dp)
     ) {
-        Icon(
-            painter = painterResource(id = icon),
-            contentDescription = text,
-            tint = Color.White,
-            modifier = Modifier.size(iconSize)
+        androidx.compose.material3.IconButton(
+            onClick = onClick,
+            modifier = Modifier
+                .size(iconSize + 8.dp)
+                .clip(CircleShape)
+                .background(Color(0xFF1565C0))
+        ) {
+            Icon(
+                painter = painterResource(id = icon),
+                contentDescription = text,
+                tint = Color.White,
+                modifier = Modifier.size(iconSize)
+            )
+        }
+        
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 8.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 2.dp)
         )
     }
 }

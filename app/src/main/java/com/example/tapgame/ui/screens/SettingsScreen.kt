@@ -9,8 +9,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,26 +40,20 @@ fun SettingsScreen(settingsDataStore: SettingsDataStore, navController: NavContr
             Surface(
                 modifier = Modifier
                     .padding(horizontal = 8.dp)
-                    .padding(top = 4.dp),
+                    .padding(top = 2.dp)
+                    .height(56.dp), // <-- добавь фиксированную высоту к Surface
                 shape = RoundedCornerShape(8.dp),
                 color = MaterialTheme.colorScheme.surface
             ) {
-                TopAppBar(
-                    title = {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-                            Text("Настройки  ")
-                        }
-                    },
-                    navigationIcon = {}, // Добавляем пустую иконку навигации
-                    actions = {},
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.Transparent,
-                        titleContentColor = MaterialTheme.colorScheme.onSurface
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center // <-- центрируй весь контент
+                ) {
+                    Text(
+                        text = "Настройки",
+                        style = MaterialTheme.typography.titleLarge
                     )
-                )
+                }
             }
         },
         content = { paddingValues ->

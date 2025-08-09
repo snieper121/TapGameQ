@@ -11,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
@@ -34,26 +36,20 @@ fun HomeScreen(navController: NavController, onShowApps: () -> Unit) {
             Surface(
                 modifier = Modifier
                     .padding(horizontal = 8.dp)
-                    .padding(top = 4.dp),
+                    .padding(top = 2.dp)
+                    .height(56.dp), // <-- добавь фиксированную высоту к Surface
                 shape = RoundedCornerShape(8.dp),
                 color = MaterialTheme.colorScheme.surface
             ) {
-                TopAppBar(
-                    title = {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center
-                        ) {
-                            Text("Главная  ")
-                        }
-                    },
-                    navigationIcon = {}, // Добавляем пустую иконку навигации
-                    actions = {},
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.Transparent,
-                        titleContentColor = MaterialTheme.colorScheme.onSurface
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center // <-- центрируй весь контент
+                ) {
+                    Text(
+                        text = "Главная",
+                        style = MaterialTheme.typography.titleLarge
                     )
-                )
+                }
             }
         },
         floatingActionButton = {
