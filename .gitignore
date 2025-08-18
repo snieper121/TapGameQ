@@ -1,7 +1,3 @@
-# Папки, генерируемые Gradle
-.gradle/
-build/
-
 # Файлы и папки IDE (включая IDX)
 .idea/
 .idx/
@@ -9,7 +5,13 @@ build/
 .androidide
 .vscode
 local.properties
-/home/user/TapGameQ/app/src/main/java/android/
 # Другие системные файлы
-.DS_Store
 java_pid71115.hprof
+
+# Папки и файлы, генерируемые IDE и системой сборки
+.gradle/
+build/
+
+# Файлы ОС
+.DS_Store
+Thumbs.db

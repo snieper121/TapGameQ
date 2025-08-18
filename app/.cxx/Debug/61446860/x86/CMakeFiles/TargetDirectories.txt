@@ -1,4 +1,0 @@
-/home/user/TapGameQ/app/.cxx/Debug/61446860/x86/CMakeFiles/rish_starter.dir
-/home/user/TapGameQ/app/.cxx/Debug/61446860/x86/CMakeFiles/rish.dir
-/home/user/TapGameQ/app/.cxx/Debug/61446860/x86/CMakeFiles/edit_cache.dir
-/home/user/TapGameQ/app/.cxx/Debug/61446860/x86/CMakeFiles/rebuild_cache.dir
